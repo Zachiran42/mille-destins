@@ -1,0 +1,7 @@
+build/
+.toolchain.json
+*.apk
+*.idsig
+*.keystore
+*.jks
+node_modules/
