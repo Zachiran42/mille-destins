@@ -12,3 +12,13 @@ Palette : noir bleuté, pierre humide, cuivre et or vieilli, Écho cyan pâle. M
 | `archive.png` | Décor immersif de bibliothèque souterraine inondée, pierre noire, ponts étroits, anneaux de laiton suspendus et étiquettes portant les noms effacés, fissure lumineuse cyan dans les ténèbres. Architecture fantastique lisible sans personnage dominant ni typographie. | 1536 × 1024 |
 
 Les portraits et monstres sont affichés avec le rapport de cellule exact pour éviter l’étirement. Le signe de l’Écho et l’icône livre de Mille Destins sont dessinés en SVG ; les sons sont synthétisés localement avec WebAudio, désactivés par défaut.
+
+## Édition 0.2.0 — trois couvertures nouvelles
+
+Créées avec ImageGen intégré, puis copiées dans les chemins ci-dessous, en PNG 1536 × 1024. Les personnages sont originaux et volontairement distincts d’Ari et entre eux. Chaque image est une scène cohérente, sans typographie peinte.
+
+- `docs/histoires/la-treizieme-heure/cover.png` : Inès Marceau, femme noire de 32 ans aux cheveux naturels très courts et appareil auditif, imperméable ocre, montre de cuivre lumineuse. Ville côtière sous la pluie, tramway, beffroi art déco et double ville impossible dans le ciel. Indigo, menthe et rouille ; personnage à droite et architecture à gauche pour les titres.
+- `docs/histoires/la-couronne-des-devores/cover.png` : Maël Ardan, homme à la peau brune, longs cheveux blancs, profil marqué et manteau noir doublé de bordeaux. Une couronne de bronze fendue éclaire ses mains. Palais gothique, vitraux brisés, cendres, anciennes couronnes et chevalière à l’arrière-plan. Bronze, bordeaux et noir ; clair-obscur de fantasy adulte.
+- `docs/histoires/eden-ne-repond-plus/cover.png` : Sana Voss, femme est-asiatique de 44 ans aux cheveux argentés asymétriques, visage rond marqué de taches de rousseur, combinaison utilitaire turquoise et écharpe orange. Enregistreur corail, petit drone, jardins blancs et immense planète à anneaux derrière le dôme. Ivoire, turquoise et corail ; science-fiction contemplative et mystérieuse.
+
+Brief commun : couverture de roman graphique adulte, rendu manhwa peint très détaillé, visages expressifs, lumière cinématographique, compositions lisibles sur téléphone, monde original, aucun logo, aucune bordure ni personnage de franchise. Les personnages secondaires des nouveaux récits sont présentés avec leur nom et un monogramme ; les couvertures ne prétendent pas les représenter.

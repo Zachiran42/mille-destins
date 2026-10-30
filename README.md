@@ -1,14 +1,17 @@
 # Mille Destins
 
-Une bibliothèque d’histoires illustrées dont vous êtes le héros. **Le Rang Zéro — Les noms engloutis** est le premier récit jouable de cette version. Le lecteur incarne Ari Veyr, un coursier dont l’aptitude apprend les lois des monstres. Sa puissance grandit, ses décisions laissent des liens et des dettes.
+Une bibliothèque d’histoires illustrées dont vous êtes le héros. **Quatre histoires complètes sont disponibles dans l’édition 0.2.0**, chacune avec trois fins et son carnet indépendant. **Le Rang Zéro — Les noms engloutis** est le premier récit de la collection. Le lecteur incarne Ari Veyr, un coursier dont l’aptitude apprend les lois des monstres. Sa puissance grandit, ses décisions laissent des liens et des dettes.
 
-[Jouer dans le navigateur](https://zachiran42.github.io/mille-destins/) · [APK Android](https://github.com/Zachiran42/mille-destins/releases/latest/download/mille-destins-0.1.0.apk) · [Cercle Store](https://zachiran42.github.io/cercle-store/)
+[Jouer dans le navigateur](https://zachiran42.github.io/mille-destins/) · [APK Android](https://github.com/Zachiran42/mille-destins/releases/latest/download/mille-destins-0.2.0.apk) · [Cercle Store](https://zachiran42.github.io/cercle-store/)
 
 ![Le Rang Zéro](docs/histoires/le-rang-zero/assets/keyart.png)
 
-## Première édition
+## Les quatre récits
 
-- Une seule histoire disponible : arc I terminé, six chapitres, 37 passages, jusqu’à dix combats et trois fins.
+- **Le Rang Zéro** : six chapitres, 37 passages, progression, combats tactiques et trois fins.
+- **La Treizième Heure** : six chapitres, 21 passages et trois fins ; enquête à boucles, découvertes persistantes, liens et Échos.
+- **La Couronne des Dévorés** : six chapitres, 20 passages et trois fins ; pouvoirs empruntés, duels à ouvertures, ancrage et serments.
+- **Éden ne répond plus** : six chapitres, 20 passages et trois fins ; oxygène, énergie, filtres et cohésion de l’équipage.
 - Progression de niveaux, six aptitudes, trois reliques, alliances et choix avec conséquences annoncées.
 - Combats au tour par tour : deux actions, une intention ennemie visible, garde, mana, marques, interruptions et boss à phases.
 - Deux difficultés exigeantes : Épreuve et Impitoyable. Aucun chronomètre de lecture. Reprise au début du chapitre et réattribution des aptitudes aux points sûrs.
@@ -17,7 +20,7 @@ Une bibliothèque d’histoires illustrées dont vous êtes le héros. **Le Rang
 
 L’APK contient tous les textes, illustrations et sons synthétisés. **Aucun compte, publicité, service distant ou permission Internet.** La page web nécessite une connexion pour charger ses fichiers. Les sauvegardes web et Android sont séparées et se transfèrent par les fichiers JSON exportés.
 
-Il s’agit d’une courte aventure narrative avec des embranchements, pas d’un monde ouvert ni d’une campagne infinie. Les prochaines histoires seront ajoutées quand elles seront jouables ; aucun faux titre n’occupe la bibliothèque.
+Les trois nouveaux récits sont des aventures courtes, d’environ 1 900 à 2 050 mots chacune sur l’ensemble de leurs branches. Une traversée en lit une partie ; les boucles et les autres fins invitent à rejouer. Ils utilisent des décisions narratives à ressources plutôt que le combat au tour par tour du Rang Zéro. La suite envisagée est une aventure shōnen originale : voir [ROADMAP.md](ROADMAP.md).
 
 ## Lancer et vérifier
 
@@ -25,14 +28,14 @@ Node.js 20 ou ultérieur, sans dépendance externe :
 
 ```sh
 node scripts/serve.cjs
-node --test tests/engine.test.cjs tests/storage.test.cjs
+node --test tests/engine.test.cjs tests/storage.test.cjs tests/tales.test.cjs
 node --check docs/library.js
 node --check docs/histoires/le-rang-zero/game.js
 ```
 
-Le serveur affiche son adresse locale (`PORT` peut changer le port). Les 19 contrôles couvrent les routes complètes dans les deux difficultés, les trois fins, les ressources, les phases, les intentions, les sauvegardes, la récupération et l’indépendance des histoires. Le solveur de test ne fait pas partie des fichiers embarqués dans le jeu.
+Le serveur affiche son adresse locale (`PORT` peut changer le port). Les 35 contrôles couvrent les routes complètes dans les deux difficultés, les douze fins (trois par histoire), les ressources, les phases, les intentions, les sauvegardes, la récupération et l’indépendance des histoires. Le solveur de test ne fait pas partie des fichiers embarqués dans le jeu.
 
-Vérifications manuelles : affichage mobile et bureau dans le navigateur, début de chapitre, premier combat, niveau et aptitude, retour bibliothèque, reprise après rechargement, export/import avec confirmation. **Pas encore testé sur un téléphone physique** : le bouton Retour Android, le sélecteur natif de documents et les reprises après arrêt forcé restent à confirmer sur appareil.
+Vérifications navigateur : affichage mobile et bureau, ouverture des quatre récits, décisions et découvertes, reprise après rechargement et export/import avec confirmation. Le combat, le niveau et les aptitudes du Rang Zéro restent couverts par les tests de la première édition. **Pas encore testé sur un téléphone physique** : le bouton Retour Android, le sélecteur natif de documents et les reprises après arrêt forcé restent à confirmer sur appareil.
 
 ## Compiler l’APK
 
@@ -46,7 +49,7 @@ Android 8+ (API 26), Android System WebView à jour. Pas de dépendance à une a
 ./scripts/build.ps1 -KeyStore C:/cles/application.jks -KeyAlias milledestins
 ```
 
-La release initiale utilise une signature de développement. Conserver la même clé pour les mises à jour ; les clés et mots de passe ne sont pas distribués dans les sources. Le script vérifie la signature et l’alignement.
+Les releases utilisent la même signature de développement ; la mise à jour 0.2.0 conserve le nom de paquet et les carnets 0.1.0. Conserver la même clé pour les mises à jour ; les clés et mots de passe ne sont pas distribués dans les sources. Le script vérifie la signature et l’alignement.
 
 ## Ajouter une histoire
 

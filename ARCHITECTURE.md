@@ -1,6 +1,6 @@
 # Bibliothèque et récits
 
-`docs/index.html`, `library.js` et `library.css` affichent le catalogue des modules réellement disponibles. Le premier est `histoires/le-rang-zero/module.js`. Il déclare son identifiant stable, les métadonnées de la carte, sa validation et la manière de résumer une progression.
+`docs/index.html`, `library.js` et `library.css` affichent le catalogue des modules réellement disponibles. Le premier est `histoires/le-rang-zero/module.js`. Les trois autres sont enregistrés par `tales/register.js` avec leurs contenus `heure.js`, `couronne.js` et `eden.js`. Il déclare son identifiant stable, les métadonnées de la carte, sa validation et la manière de résumer une progression.
 
 `histoires/le-rang-zero/story.js` contient le graphe et les textes ; `engine.js` est le moteur déterministe indépendant du DOM ; `game.js` rend l’interface. Il n’existe aucun appel à un modèle ni génération de récit en cours de partie. Toutes les branches et fins sont écrites et embarquées.
 
@@ -18,4 +18,12 @@ Une désinstallation efface les données privées Android. Exporter avant de dé
 
 Un WebView charge les fichiers embarqués via une origine HTTPS interceptée. Le manifeste ne demande aucune permission. Les accès fichier et contenu, cookies et navigation distante sont bloqués ; la politique CSP limite les scripts aux fichiers locaux et interdit les connexions. Le sélecteur système ne s’ouvre que pour un export ou import déclenché par le joueur. SharedPreferences écrit le document et sa copie dans une transaction `commit()`.
 
-L’ajout d’un récit exige : un nouvel identifiant, des fichiers locaux et une validation de domaine, son enregistrement dans l’accueil, ses tests et ses ressources dans la prochaine release APK. Le registre et le stockage ont été testés avec deux modules synthétiques indépendants ; la release ne contient qu’un récit jouable.
+L’ajout d’un récit exige : un nouvel identifiant, des fichiers locaux et une validation de domaine, son enregistrement dans l’accueil, ses tests et ses ressources dans la prochaine release APK. Le registre et le stockage ont été testés avec deux modules synthétiques indépendants ; la release 0.2.0 contient quatre récits jouables.
+
+## Récits à ressources
+
+`tales/engine.js` fournit les transitions déterministes et transactionnelles des trois nouveaux récits. Une décision est appliquée à une copie, validée puis écrite avant de remplacer l’état affiché. Les coûts, connaissances, drapeaux de décision et seuils ferment ou ouvrent les choix. Les points sûrs restaurent l’état d’entrée du chapitre sans accumuler des ressources. La Treizième Heure remplace cette reprise par un retour complet ; le savoir et les fins persistent et alimentent les Échos du prochain départ.
+
+Les tests parcourent les graphes et trouvent les neuf nouvelles conclusions dans chacune des deux difficultés. Le registre vérifie également un export/import contenant les quatre histoires sans altérer Le Rang Zéro.
+
+Android 13+ utilise désormais `OnBackInvokedDispatcher` pour revenir dans le lecteur ou fermer une fenêtre. Les versions précédentes gardent `onBackPressed`. Ce changement suit la [migration officielle du bouton Retour pour Android 16](https://developer.android.com/about/versions/16/behavior-changes-16#predictive-back). La compilation est vérifiée ; le comportement sur téléphone physique reste à tester.
