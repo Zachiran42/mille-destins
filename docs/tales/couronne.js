@@ -1,41 +1,1061 @@
-(function(root,factory){const S=factory();if(typeof module==='object'&&module.exports)module.exports=S;else(root.DestinyBooks=root.DestinyBooks||[]).push(S);})(typeof globalThis!=='undefined'?globalThis:this,function(){
-const N={},n=(id,chapter,title,text,choices,extra={})=>N[id]={id,chapter,title,text:text.split('||'),choices,...extra},c=(id,label,next,detail,effects={},extra={})=>({id,label,next,detail,effects,...extra});
-n('heritage',1,'La couronne ne vous attendait pas',"Votre père a laissé une couronne de bronze dans une boîte à provisions. Ni titre, ni testament. Seulement une phrase : « Si elle prononce ton nom, ne réponds pas tout de suite. » Vous êtes Maël Ardan, relieur de vingt-neuf ans. Votre famille réparait les livres de la cour avant d’en être effacée.||Le soir des funérailles, les soldats apportent un décret. Le dernier souverain est mort sans héritier reconnu. Tous les descendants des maisons déchues doivent comparaître. Au fond de la boîte, la couronne prononce un prénom que votre père était le seul à employer.",[
-c('nom','Écrire votre vrai nom avant de la toucher','escorte','Vous protégez une part de votre identité.',{ancrage:1},{learn:['nom'],flags:['nomEcrit']}),c('poser','Essayer la couronne pour entendre la voix','voix','Une première force, payée en influence intérieure.',{puissance:1,voix:1,ancrage:-1})],{place:'L’ATELIER DES LIVRES MUETS'});
-n('voix',1,'Le roi qui emprunte votre bouche',"La première voix s’appelle Odran. Elle vous demande un verre d’eau, puis la position de vos mains, puis de ne plus respirer jusqu’à nouvel ordre. Vous retirez la couronne avant la troisième demande. Votre main droite tient déjà un couteau que vous n’avez pas pris.||Odran a régné pendant trente ans sans perdre un duel. Il prétend que votre peur est un défaut de posture. Vous lui demandez où il a enterré son fils. Pendant une seconde, toutes les voix se taisent. Le pouvoir est peut-être une discipline. Le silence, lui, possède des fissures.",[
-c('question','Garder la question qui l’a fait taire','escorte','Vous trouvez une première limite aux souverains.',{ancrage:1},{learn:['question']}),c('ecole','Apprendre son premier geste d’escrime','escorte','L’enseignement augmente votre force et sa présence.',{puissance:1,voix:1},{flags:['geste']})],{speaker:'Odran',place:'DEVANT LE MIROIR FENDU'});
-n('escorte',1,'Ysra n’agenouille personne',"La chevalière Ysra vient vous chercher sans escorte. Elle porte une épée trop simple pour la garde royale et une attelle à la main gauche. Elle vous reconnaît : vous répariez les cahiers de sa fille.||Elle n’exige pas la couronne. Elle exige de voir si vous pouvez encore choisir de la poser. Au palais, dit-elle, les six souverains morts ont dévoré chaque héritier qui tentait de les porter ensemble. Votre nom vient d’apparaître sur la porte du trône. Personne n’en a demandé la gravure.",[
-c('confier','Lui confier la couronne jusqu’au palais','portail','Un acte de confiance vous aide à rester vous-même.',{serments:1,ancrage:1},{flags:['ysra']}),c('garder','La garder, mais lui expliquer les voix','portail','Vous obtenez son aide sans céder votre seul avantage.',{serments:1},{learn:['six']})],{speaker:'Ysra',place:'LE PONT DES RELIEURS'});
-n('portail',1,'Une porte qui exige un roi',"Le portail ne s’ouvre qu’à une personne qui peut commander. Dans la cour, un valet s’efforce depuis une heure de prononcer les titres des anciennes familles. Sa gorge saigne. Chaque erreur referme la grille sur sa main.||La couronne vous offre une phrase parfaite. Ysra voit que vous l’avez entendue et pose les doigts sur la garde de son épée. Vous pouvez employer cette voix, chercher une autre règle dans les inscriptions ou demander à quelqu’un qui connaît le palais comment ses domestiques y entrent.",[
-c('ordre','Commander avec la voix d’Odran','cendre','La porte obéit. Le roi prend davantage de place.',{voix:1,puissance:1,ancrage:-1},{learn:['porte']}),c('service','Demander au valet de vous montrer la porte de service','cendre','Vous gagnez sa confiance et traversez une cour dangereuse.',{souffle:-2,serments:1},{learn:['porte'],flags:['valet']})],{place:'LE PALAIS DES SIX DEUILS'});
-n('cendre',2,'Le souverain qui brûlait pour protéger',"Odran occupe une salle couverte de cendres froides. Les tapisseries représentent ses victoires, mais le sol porte les empreintes de portes barricadées de l’intérieur. Il a brûlé les faubourgs pour empêcher un siège. Les chroniqueurs ont écrit qu’il avait sauvé la capitale.||Il vous propose sa braise : une force qui coupe les liens des armures et les serments des hommes. Ysra vous demande de regarder aussi les petites traces près des portes. Vous n’avez pas à absoudre un mort pour apprendre de lui, mais la couronne ne fait pas cette distinction à votre place.",[
-c('braise','Prendre sa braise en conservant son histoire','duel-cendre','Un pouvoir de plus et une voix à contenir.',{puissance:2,voix:1,ancrage:-1},{flags:['braise'],learn:['odran']}),c('preuve','Lire les témoignages avant de choisir','duel-cendre','Vous comprenez sa loi sans lui ouvrir votre esprit.',{souffle:-1},{learn:['odran','question']})],{checkpoint:true,speaker:'Odran',place:'LA SALLE DES CENDRES'});
-n('duel-cendre',2,'La lame qui suit la respiration',"Le gardien de cendre n’a pas de visage. Il lève sa lame quand vous inspirez et frappe lorsque vous retenez l’air. La couronne vous ordonne de rester parfaitement immobile. Vous voyez alors les marques laissées par les héritiers qui l’ont crue.||Sur l’armure, une ouverture apparaît chaque fois que le gardien prononce le nom d’Odran. Ysra pourrait attirer son premier coup, mais son attelle ne résisterait pas à un second. Vous pouvez briser la cuirasse par la puissance, opposer au roi sa propre histoire ou accepter de payer l’ouverture avec votre corps.",[
-c('force','Briser la cuirasse avec la braise','repos','Puissance 3 nécessaire. Vous encaissez une brûlure.',{souffle:-2},{requires:{min:{puissance:3}}}),c('nommer','Prononcer le nom du fils d’Odran','repos','Le témoignage ouvre le duel sans livrer votre esprit.',{souffle:-1},{requires:{known:['odran','question']},learn:['loi']}),c('tenir','Tenir la lame pendant qu’Ysra frappe','repos','Une victoire coûteuse, possible sans pouvoir.',{souffle:-5,serments:1},{flags:['blessure']})],{place:'LE DUEL DE CENDRE'});
-n('repos',2,'Ce que l’on répare ensemble',"La fille d’Ysra, Tessa, a installé un atelier dans une ancienne chapelle du palais. Elle restaure les portraits que la succession fait lacérer à chaque nouveau règne. Elle ne s’intéresse pas à votre couronne. Elle veut savoir si vous avez encore vos aiguilles de relieur.||Vous l’aidez à remettre les fragments d’un visage dans le bon ordre. Les voix se disputent la ressemblance. Tessa vous tend un miroir : c’est vous qu’elle essaie de restaurer, en vous occupant les mains avec un travail que vous savez faire sans ordre d’aucun roi.",[
-c('soigner','Accepter les soins et réparer un portrait','verre','Vous récupérez et fortifiez votre ancrage.',{souffle:4,ancrage:1},{flags:['atelier']}),c('rallier','Demander aux domestiques de témoigner','verre','Leur parole peut compter dans la dernière salle.',{serments:2},{learn:['serviteurs']})],{speaker:'Tessa',place:'LA CHAPELLE DES PORTRAITS'});
-n('verre',3,'La reine aux mille regards',"La reine Séliane n’a laissé aucun portrait. Elle a fait poser des miroirs devant chaque siège de son conseil, afin que personne ne puisse parler sans se regarder mentir. Le jour de sa mort, tous les miroirs lui ont montré le même visage : celui de la servante qui portait ses repas.||La reine vous promet de reconnaître chaque trahison avant qu’elle arrive. Vous demandez si elle reconnaissait encore la loyauté. Les reflets ferment les yeux. Dans cette salle, la vérité peut devenir une arme assez lourde pour empêcher quiconque de vous approcher.",[
-c('miroir','Accepter le regard de Séliane','duel-verre','Une faculté puissante, accompagnée de sa méfiance.',{puissance:1,voix:2,ancrage:-1},{flags:['regard'],learn:['seliane']}),c('servante','Rechercher le nom de sa dernière servante','duel-verre','Vous choisissez une vérité qui concerne quelqu’un.',{souffle:-1,serments:1},{learn:['seliane','serviteurs']})],{checkpoint:true,speaker:'Séliane',place:'LA GALERIE SANS PORTRAIT'});
-n('duel-verre',3,'Le reflet qui ne se défend pas',"Trois reflets vous attendent. Le premier attaque dès que vous faites un pas. Le deuxième reproduit les gestes d’Ysra. Le troisième reste immobile, les mains derrière le dos. Chaque coup porté à un faux reflet revient sur votre poitrine.||Séliane vous affirme que le troisième prépare une feinte. Tessa reconnaît dans sa posture une habitude des domestiques : ils devaient cacher leurs mains abîmées pour servir la reine. Vous pouvez utiliser le regard emprunté, croire le témoignage de Tessa ou traverser en protégeant votre visage.",[
-c('regard','Désigner le vrai reflet avec le regard royal','serment','Vous le reconnaissez avant qu’il frappe.',{ancrage:-1},{requires:{flags:['regard']},learn:['reflet']}),c('temoin','Écouter Tessa et saluer les mains cachées','serment','Les serviteurs vous laissent traverser.',{serments:1},{requires:{known:['serviteurs']},learn:['reflet']}),c('traverser','Traverser les trois attaques sous votre manteau','serment','Vous choisissez une blessure plutôt qu’un pari.',{souffle:-5},{learn:['reflet']})],{place:'LE DUEL DES TROIS REFLETS'});
-n('serment',3,'Le droit de vous arrêter',"Ysra vous demande un serment dans l’escalier. Elle ne veut ni terres ni titre. Si vous commencez à parler pour les six morts, elle veut que vous lui donniez le droit de vous interrompre, même devant la cour entière.||Les voix protestent. Un souverain doit-il vraiment autoriser quelqu’un à lui dire qu’il a tort ? Vous pensez aux livres réparés dans votre atelier : les pages tiennent parce que la couture peut se reprendre. Ysra vous tend son épée par le plat. Elle ne demande pas à vous appartenir.",[
-c('droit','Lui donner ce droit sans condition','maree','Un serment solide et une volonté plus claire.',{serments:1,ancrage:2},{flags:['contrepoids'],learn:['serment']}),c('pouvoir','Lui promettre une place au conseil','maree','Vous obtenez un accord plus prudent.',{serments:1,puissance:1},{flags:['conseil']})],{speaker:'Ysra',place:'L’ESCALIER DES BANNIÈRES'});
-n('maree',4,'Le roi qui rendait les morts à la mer',"Le troisième souverain se nomme Neral. Il a construit une flotte pour évacuer les villages que les autres rois abandonnaient. Puis il a gardé les bateaux au large : il craignait que les survivants ne choisissent un autre protecteur en touchant terre.||La couronne vous offre sa marée, un pouvoir capable d’emporter toute attaque pendant un battement. Pour l’obtenir, il faut prendre la place du pilote dans un naufrage qui recommence. Vous pouvez aussi chercher le manifeste du dernier navire. Quelqu’un y a peut-être déjà écrit une route vers le rivage.",[
-c('marée','Prendre la marée en vivant le naufrage','duel-maree','Vous acquérez une défense, avec la peur de Neral.',{puissance:1,voix:1,ancrage:-1},{flags:['maree'],learn:['neral']}),c('manifeste','Lire les noms des passagers avant le manifeste','duel-maree','La route tient dans les témoignages.',{souffle:-1,serments:1},{learn:['neral','rivage']})],{checkpoint:true,speaker:'Neral',place:'LA SALLE SOUS LES EAUX'});
-n('duel-maree',4,'Un battement pour respirer',"L’eau s’élève jusqu’aux marches sans mouiller les tentures. Le gardien de Neral avance sous la surface. Vous voyez son arme trois secondes avant que son corps l’atteigne. Les voix vous poussent à le frapper là où il se trouve ; la vague vous atteindrait la première.||Vous pouvez absorber le choc avec la marée, utiliser votre puissance pour soulever la passerelle, ou suivre le courant décrit dans le manifeste. Si vous ne possédez aucune de ces ouvertures, il reste un passage contre le mur : suffisamment étroit pour perdre du souffle à chaque marche.",[
-c('maree','Laisser la marée prendre le premier choc','crypte','Une défense acquise a enfin son usage.',{souffle:-1},{requires:{flags:['maree']},learn:['battement']}),c('puissance','Soulever la passerelle d’une seule main','crypte','La force suffit si vous en avez conservé assez.',{souffle:-2},{requires:{min:{puissance:4}},learn:['battement']}),c('courant','Suivre le courant vers le rivage','crypte','La route des passagers évite le gardien.',{}, {requires:{known:['rivage']},learn:['battement']}),c('mur','Passer le long du mur en apnée','crypte','Cette voie reste ouverte, mais coûte beaucoup de souffle.',{souffle:-5})],{place:'LE DUEL DE LA VAGUE'});
-n('crypte',4,'Votre père avait porté la couronne',"Sous le palais, des livres sont reliés avec des rubans portant les noms des héritiers dévorés. Votre père y possède une page. Elle n’est pas terminée. Il a quitté la couronne après avoir compris que les six voix ne sont pas six personnes : elles sont ce que le pouvoir a conservé d’elles.||Ses notes décrivent un cercle où les voix se remplacent pour empêcher le porteur de penser seul. On peut les faire taire en refusant leur histoire. On peut aussi leur rendre les parties qu’elles ont supprimées : leurs proches, leurs erreurs et les gens qui leur ont survécu.",[
-c('cercle','Lire le cercle et compléter la page de votre père','veille','Vous préparez une libération plutôt qu’une victoire.',{ancrage:1},{learn:['cercle','nom']}),c('heritage','Prendre l’énergie qu’il a laissée dans les reliures','veille','Votre force grandit, au prix d’une influence supplémentaire.',{puissance:2,voix:1,ancrage:-1},{learn:['cercle']})],{place:'LA CRYPTE DES RELIEURS'});
-n('veille',5,'Le visage que vous reconnaissez encore',"Tessa vous apporte le portrait restauré. Ce n’est pas un roi, ni votre père. C’est un homme qui répare un livre en gardant une tasse trop près de la colle : vous, quelques jours plus tôt. Elle l’a peint de mémoire.||Les voix ne savent rien faire de cette image. Aucun titre ne s’y accroche. Ysra vous laisse le choix du dernier repos. Vous pouvez reprendre vos outils, préparer un geste de souverain ou demander à vos compagnons de vous rappeler les noms que les morts n’ont pas retenus.",[
-c('atelier','Réparer la reliure du portrait','audience','Vous retrouvez votre souffle et votre manière de penser.',{souffle:5,ancrage:2},{flags:['portrait']}),c('allies','Écouter les noms de vos compagnons','audience','Vous consolidez les serments qui peuvent limiter le trône.',{serments:2,ancrage:1},{learn:['vivants']}),c('geste','Répéter le geste qui ouvrira la salle','audience','Vous transformez de la volonté en force.',{puissance:1,ancrage:-1})],{checkpoint:true,place:'LA CHAPELLE AVANT L’AUBE',speaker:'Tessa'});
-n('audience',5,'Le palais demande un verdict',"Le conseil vous attend avec six sièges vides derrière le vôtre. Son doyen ne vous demande pas si vous êtes prêt. Il vous demande quel quartier devra payer les travaux de couronnement. La ville n’a pas encore appris votre nom que votre règne exige déjà des dettes.||Une file de domestiques s’est arrêtée sur le seuil. Ils ont entendu ce qui s’est passé dans les salles. Ils ne sont pas venus vous acclamer. Ils veulent savoir si la porte de service deviendra encore leur seule entrée après votre installation.",[
-c('place','Faire entrer les témoins avant le conseil','choeur','Vous construisez une autorité qui accepte la contradiction.',{serments:1},{requires:{min:{serments:2}},flags:['temoins'],learn:['vivants']}),c('trone','Imposer le silence par votre puissance','choeur','Vous obtenez le passage et renforcez la présence des morts.',{voix:1},{requires:{min:{puissance:3}},flags:['silence']}),c('refuser','Refuser le verdict et forcer la porte du trône','choeur','Votre refus est possible sans titre, mais les gardes vous frappent.',{souffle:-3},{flags:['refus']})],{place:'L’AUDIENCE DU CONSEIL'});
-n('choeur',6,'Les six voix parlent ensemble',"Le trône n’est pas un siège. C’est une cage dont les barreaux sont les récits officiels des règnes. Les trois voix que vous avez rencontrées appellent les trois autres. Elles ne vous donnent pas de nouveaux pouvoirs ; elles essaient de parler assez fort pour que vous oubliiez avoir pu vivre sans elles.||La couronne se fend. Un instant, les souverains retrouvent les souvenirs que vous avez ramenés. Odran entend son fils, Séliane voit les mains de sa servante et Neral aperçoit enfin le rivage. Votre propre nom existe au milieu de leurs silences. Il reste à choisir ce qu’il va désigner.",[
-c('noms','Réciter les noms oubliés pour ouvrir le cercle','choix','Votre savoir restaure une part de votre ancrage.',{ancrage:1},{requires:{known:['odran','seliane','neral']},learn:['liberation']}),c('volonte','Résister en vous appuyant sur votre serment','choix','Ysra vous rend la parole au prix d’un dernier effort.',{souffle:-2},{requires:{flags:['contrepoids']},learn:['liberation']}),c('puissance','Saisir le cercle avec vos propres mains','choix','Vous affrontez directement l’influence des morts.',{souffle:-3},{learn:['liberation']})],{checkpoint:true,place:'LE TRÔNE SANS ASSISE'});
-n('choix',6,'Quel souverain restera ?',"Les morts attendent votre réponse. Vous pouvez rendre les voix à leurs histoires et garder une couronne qui n’appartiendra plus à une seule personne. Cela exige de vous souvenir assez clairement de votre nom et d’avoir donné aux vivants le droit de vous arrêter.||Vous pouvez aussi porter les six forces en conservant votre volonté, si votre puissance et votre ancrage suffisent encore à les contenir. Enfin, il reste la possibilité de briser la couronne : personne ne deviendra roi ce matin, et il faudra organiser la ville sans ses miracles.",[
-c('liberer','Délier les souverains et partager l’autorité','fin-libre','Ancrage 4, serments 3, votre nom et le cercle compris.',{}, {requires:{min:{ancrage:4,serments:3},known:['nom','cercle','liberation']}}),c('regner','Porter les six voix sous votre propre nom','fin-roi','Puissance 5, ancrage 2 ; au plus 6 voix.',{}, {requires:{min:{puissance:5,ancrage:2},max:{voix:6},known:['cercle']}}),c('briser','Briser la couronne devant les témoins','fin-cendres','Puissance 3 et serments 2 : quelqu’un doit vous aider à vivre après le geste.',{}, {requires:{min:{puissance:3,serments:2}}}),c('ceder','Demander aux voix de choisir pour vous','choix','Vous abandonnez la décision et perdez la tentative.',{}, {fail:'Votre bouche prononce six décrets à la fois. Ysra arrache la couronne avant qu’il ne reste plus de place pour votre nom.'})],{place:'LE CERCLE OUVERT'});
-n('fin-libre',6,'La couronne sans propriétaire',"Les voix quittent le bronze l’une après l’autre. Elles n’obtiennent ni pardon ni condamnation parfaite. Elles rejoignent les personnes et les conséquences qu’elles avaient retirées de leurs propres histoires. Le palais cesse de retenir son souffle.||Vous ne vous asseyez pas sur le trône. Vous faites apporter une table où chacun peut poser les mains sans les cacher. Ysra garde son épée ; son serment demeure valable quand vous vous trompez. Tessa accroche votre portrait dans l’atelier, à côté de ceux qu’elle restaure encore.||La première décision du conseil prend trois jours. Elle ne sauve pas le monde. Elle répare le pont des relieurs et ouvre deux portes de service sur la rue. Les livres d’histoire trouveront peut-être cela trop petit. Vous savez désormais combien de vies peuvent tenir dans une couture reprise.",[],{ending:'libre',place:'LA TABLE DES VIVANTS'});
-n('fin-roi',6,'Un nom au-dessus des six',"Vous reposez la couronne sur votre tête. Les six morts ne se taisent pas. Ils doivent apprendre à demander la parole. Leurs pouvoirs traversent vos mains sans choisir à votre place à qui elles se tendent. Le conseil s’agenouille ; vous faites relever les domestiques en premier.||Vous pouvez soulever des portes qu’une compagnie de soldats ne déplacerait pas. Vous ne pouvez pas réparer par la force le temps perdu à les maintenir fermées. Ysra vous interrompt lors de votre premier décret, devant tous les témoins. Votre colère ne dure qu’un battement. Vous l’écoutez.||Le soir, vous retirez la couronne assez longtemps pour terminer une reliure. Le geste reste possible. Vous savez maintenant qu’il faudra le vérifier chaque jour. Votre règne commence par ce travail que personne ne pourra accomplir pour vous.",[],{ending:'roi',place:'LE PREMIER SOIR DU RÈGNE'});
-n('fin-cendres',6,'Le matin sans miracle',"La couronne se brise comme un objet qui a trop longtemps prétendu être une loi. Les pouvoirs disparaissent avant les voix. Pendant un battement, vous entendez des hommes et des femmes effrayés par la fin de leur propre récit. Puis la salle redevient une salle.||Le conseil vous accuse d’avoir privé la ville de sa protection. Vous lui demandez pourquoi il n’avait jamais appris à en construire une autre. Ysra ouvre les greniers. Les anciens domestiques organisent les distributions avec une précision que les chroniques n’avaient jamais remarquée.||Vous reprenez votre atelier avec une main qui tremble lorsque le temps change. Tessa y vient pour travailler ; les discussions sur l’avenir du palais débordent souvent jusque sur le trottoir. Le monde ne vous obéit plus. Pour la première fois, cela ne ressemble pas à une défaite.",[],{ending:'cendres',place:'L’ATELIER ROUVERT'});
-return{id:'la-couronne-des-devores',edition:3,title:'La Couronne des Dévorés',coverTitle:'LA COURONNE|DES DÉVORÉS',subtitle:'Le droit de vous arrêter',genre:'DARK FANTASY · POUVOIRS · SERMENTS',description:'Les souverains morts vous prêtent leurs pouvoirs et s’installent dans votre esprit. Devenez assez fort pour régner, sans leur abandonner votre nom.',coverAlt:'Maël aux longs cheveux blancs tient une couronne de bronze fendue dans un palais de cendre et de vitraux rouges.',features:['Pouvoirs empruntés','3 fins','Volonté et alliances'],accent:'#dba688',loop:false,start:'heritage',chapters:['Le nom dans la boîte','La braise d’Odran','Les yeux de Séliane','Le rivage de Neral','Les témoins vivants','Le cercle des six'],intro:'Vous incarnez Maël Ardan, 29 ans, relieur. L’héritage de votre père vous donne accès à la succession royale : une couronne habitée par ceux qu’elle a déjà dévorés.',rules:'Le souffle mesure votre état physique ; l’ancrage, votre capacité à penser par vous-même. À zéro dans l’une de ces réserves, Ysra interrompt la tentative. Les pouvoirs ouvrent des issues aux duels, mais augmentent les voix et peuvent fermer une fin. Les témoignages offrent d’autres approches. Une défaite reprend l’entrée du chapitre avec les mêmes réserves, sans gains cumulés.',difficulty:['20 souffle, 8 ancrage. Les repos permettent de corriger une prise de risque.','16 souffle, 6 ancrage. Il faut préparer les duels et surveiller ce que vous cédez.'],stats:{souffle:{label:'Souffle',start:20,hard:16,max:24,vital:true,failure:'Vous ne tenez plus debout. Ysra vous ramène avant que la couronne ne choisisse un autre porteur.'},ancrage:{label:'Ancrage',start:8,hard:6,max:12,vital:true,failure:'Vous ne distinguez plus votre volonté des ordres des morts. Ysra vous retire la couronne.'},puissance:{label:'Puissance',start:1,hard:1,max:10},voix:{label:'Voix',start:0,hard:0,max:12},serments:{label:'Serments',start:0,hard:0,max:12}},clues:{nom:{title:'Votre vrai nom',text:'Le nom écrit avant de porter la couronne appartient encore à votre propre histoire.'},question:{title:'La question qui interrompt',text:'Les souverains perdent leur autorité lorsqu’on nomme ce qu’ils ont supprimé de leur récit.'},six:{title:'Les six présences',text:'La couronne conserve des versions de souverains, pas des personnes entières.'},porte:{title:'La porte de service',text:'Le palais fonctionne grâce à des gens auxquels sa grande porte reste fermée.'},odran:{title:'La braise et les faubourgs',text:'Odran brûla des quartiers pour sauver la capitale ; son fils mourut derrière une porte barricadée.'},loi:{title:'L’ouverture de cendre',text:'Le gardien expose sa faille lorsqu’on rend au roi le souvenir de son fils.'},serviteurs:{title:'Les mains cachées',text:'Les domestiques cachaient leurs mains pour servir Séliane. Leur témoignage reconnaît le vrai reflet.'},seliane:{title:'La reine sans portrait',text:'En cherchant partout la trahison, Séliane cessa de reconnaître la loyauté.'},reflet:{title:'Le reflet immobile',text:'La vérité ne se tient pas toujours du côté de la silhouette qui attaque.'},serment:{title:'Le contrepoids',text:'Ysra possède le droit de vous interrompre, même devant toute la cour.'},neral:{title:'Le roi au large',text:'Neral sauva ses passagers sans accepter de les laisser débarquer.'},rivage:{title:'La route du manifeste',text:'Les passagers ont décrit un courant qui évite le gardien de la marée.'},battement:{title:'L’arme en avance',text:'L’eau annonce le coup avant le corps. Savoir où attendre épargne une blessure.'},cercle:{title:'Le cercle des voix',text:'Les six récits se remplacent pour empêcher le porteur de conserver son propre silence.'},vivants:{title:'Les témoins vivants',text:'Une autorité durable a besoin de gens qui peuvent encore lui dire non.'},liberation:{title:'Le cercle ouvert',text:'Rendre aux morts les personnes qu’ils ont effacées affaiblit leur prise sur votre esprit.'}},cast:[{name:'Maël Ardan',role:'Votre personnage',text:'Relieur, héritier d’un nom effacé et d’une couronne trop bien conservée.'},{name:'Ysra',role:'La chevalière',text:'Elle ne veut pas vous servir sans avoir le droit de vous arrêter.'},{name:'Tessa',role:'La restauratrice',text:'Elle répare les visages que les successions détruisent.'},{name:'Odran',role:'La braise',text:'Un conquérant qui a rayé sa plus grande perte des chroniques.'},{name:'Séliane',role:'Le regard',text:'Une reine qui a vu les trahisons jusqu’à ne plus voir la loyauté.'},{name:'Neral',role:'La marée',text:'Un protecteur qui n’a pas su conduire les siens jusqu’au rivage.'}],endings:{libre:'La couronne partagée',roi:'Un nom au-dessus des six',cendres:'Le matin sans miracle'},nodes:N};
+(function(root,S){if(typeof module==='object'&&module.exports)module.exports=S;else(root.DestinyBooks=root.DestinyBooks||[]).push(S);})(typeof globalThis!=='undefined'?globalThis:this,{
+  "id": "la-couronne-des-devores",
+  "edition": 3,
+  "title": "La Couronne des Dévorés",
+  "coverTitle": "LA COURONNE|DES DÉVORÉS",
+  "subtitle": "Garder le contrôle",
+  "genre": "DARK FANTASY · POUVOIRS · SERMENTS",
+  "description": "Vous êtes Maël. Vous héritez d’une couronne contenant les esprits de six anciens rois et reines. Leurs pouvoirs peuvent vous aider à devenir roi, mais chaque emprunt leur permet de prendre davantage de contrôle.",
+  "coverAlt": "Maël aux longs cheveux blancs tient une couronne de bronze fendue dans un palais de cendre et de vitraux rouges.",
+  "features": [
+    "6 chapitres",
+    "3 fins",
+    "Objectif toujours visible"
+  ],
+  "accent": "#dba688",
+  "loop": false,
+  "start": "heritage",
+  "chapters": [
+    "Recevoir la couronne",
+    "Le gardien de feu",
+    "Le piège des miroirs",
+    "La salle inondée",
+    "Préparer votre règne",
+    "Choisir votre avenir"
+  ],
+  "intro": "Vous êtes Maël. Vous héritez d’une couronne contenant les esprits de six anciens rois et reines. Leurs pouvoirs peuvent vous aider à devenir roi, mais chaque emprunt leur permet de prendre davantage de contrôle.",
+  "rules": "Gardez votre Santé et votre Volonté au-dessus de zéro. La Puissance ouvre des passages. Les Soutiens représentent vos alliés. L’Influence des esprits montre la place prise par les morts dans votre tête : elle doit rester basse pour certaines fins. Chaque choix affiche ses gains, ses pertes et ses conditions. Après un échec, vous reprenez le début du chapitre avec ses réserves d’origine.",
+  "difficulty": [
+    "Normal : 20 Santé et 8 Volonté. Recommandé pour découvrir l’histoire.",
+    "Difficile : 16 Santé et 6 Volonté. Il faut mieux préparer les duels."
+  ],
+  "stats": {
+    "souffle": {
+      "label": "Santé",
+      "start": 20,
+      "hard": 16,
+      "max": 24,
+      "vital": true,
+      "failure": "Vous ne tenez plus debout. Ysra vous ramène avant que la couronne ne choisisse un autre porteur."
+    },
+    "ancrage": {
+      "label": "Volonté",
+      "start": 8,
+      "hard": 6,
+      "max": 12,
+      "vital": true,
+      "failure": "Vous ne distinguez plus votre volonté des ordres des morts. Ysra vous retire la couronne."
+    },
+    "puissance": {
+      "label": "Puissance",
+      "start": 1,
+      "hard": 1,
+      "max": 10
+    },
+    "voix": {
+      "label": "Influence des esprits",
+      "start": 0,
+      "hard": 0,
+      "max": 12
+    },
+    "serments": {
+      "label": "Soutiens",
+      "start": 0,
+      "hard": 0,
+      "max": 12
+    }
+  },
+  "clues": {
+    "nom": {
+      "title": "Votre vrai nom",
+      "text": "Le nom écrit avant de porter la couronne appartient encore à votre propre histoire."
+    },
+    "question": {
+      "title": "La question qui interrompt",
+      "text": "Les souverains perdent leur autorité lorsqu’on nomme ce qu’ils ont supprimé de leur récit."
+    },
+    "six": {
+      "title": "Les six présences",
+      "text": "La couronne conserve des versions de souverains, pas des personnes entières."
+    },
+    "porte": {
+      "title": "La porte de service",
+      "text": "Le palais fonctionne grâce à des gens auxquels sa grande porte reste fermée."
+    },
+    "odran": {
+      "title": "La braise et les faubourgs",
+      "text": "Odran brûla des quartiers pour sauver la capitale ; son fils mourut derrière une porte barricadée."
+    },
+    "loi": {
+      "title": "L’ouverture de cendre",
+      "text": "Le gardien expose sa faille lorsqu’on rend au roi le souvenir de son fils."
+    },
+    "serviteurs": {
+      "title": "Les mains cachées",
+      "text": "Les domestiques cachaient leurs mains pour servir Séliane. Leur témoignage reconnaît le vrai reflet."
+    },
+    "seliane": {
+      "title": "La reine sans portrait",
+      "text": "En cherchant partout la trahison, Séliane cessa de reconnaître la loyauté."
+    },
+    "reflet": {
+      "title": "Le reflet immobile",
+      "text": "La vérité ne se tient pas toujours du côté de la silhouette qui attaque."
+    },
+    "serment": {
+      "title": "Le contrepoids",
+      "text": "Ysra possède le droit de vous interrompre, même devant toute la cour."
+    },
+    "neral": {
+      "title": "Le roi au large",
+      "text": "Neral sauva ses passagers sans accepter de les laisser débarquer."
+    },
+    "rivage": {
+      "title": "La route du manifeste",
+      "text": "Les passagers ont décrit un courant qui évite le gardien de la marée."
+    },
+    "battement": {
+      "title": "L’arme en avance",
+      "text": "L’eau annonce le coup avant le corps. Savoir où attendre épargne une blessure."
+    },
+    "cercle": {
+      "title": "Le cercle des voix",
+      "text": "Les six récits se remplacent pour empêcher le porteur de conserver son propre silence."
+    },
+    "vivants": {
+      "title": "Les témoins vivants",
+      "text": "Une autorité durable a besoin de gens qui peuvent encore lui dire non."
+    },
+    "liberation": {
+      "title": "Le cercle ouvert",
+      "text": "Rendre aux morts les personnes qu’ils ont effacées affaiblit leur prise sur votre esprit."
+    }
+  },
+  "cast": [
+    {
+      "name": "Maël Ardan",
+      "role": "Votre personnage",
+      "text": "Vous réparez des livres. La couronne héritée de votre père fait de vous un candidat au trône."
+    },
+    {
+      "name": "Ysra",
+      "role": "La chevalière",
+      "text": "Une chevalière qui vous accompagne et peut vous aider à résister aux esprits."
+    },
+    {
+      "name": "Tessa",
+      "role": "La restauratrice",
+      "text": "La fille d’Ysra. Elle répare les portraits et vous accueille pour vous reposer."
+    },
+    {
+      "name": "Odran",
+      "role": "La braise",
+      "text": "Un ancien roi qui vous prête un pouvoir de feu en échange d’influence sur votre esprit."
+    },
+    {
+      "name": "Séliane",
+      "role": "Le regard",
+      "text": "Une ancienne reine qui vous prête sa vision magique en échange d’influence sur votre esprit."
+    },
+    {
+      "name": "Neral",
+      "role": "La marée",
+      "text": "Un ancien roi qui vous prête une protection contre les vagues en échange d’influence sur votre esprit."
+    }
+  ],
+  "endings": {
+    "libre": "Vous partagez le pouvoir",
+    "roi": "Vous devenez roi",
+    "cendres": "Vous détruisez la couronne"
+  },
+  "nodes": {
+    "heritage": {
+      "id": "heritage",
+      "chapter": 1,
+      "title": "La couronne de votre père",
+      "text": [
+        "Vous êtes Maël, un artisan qui répare des livres. Après la mort de votre père, vous trouvez une couronne dans ses affaires. Elle vous parle.",
+        "Le roi vient de mourir sans héritier. Les soldats vous convoquent au palais pour la succession. Avant de partir, vous pouvez écrire votre nom pour rester concentré ou essayer la couronne."
+      ],
+      "choices": [
+        {
+          "id": "nom",
+          "label": "Écrire votre nom pour garder le contrôle",
+          "next": "escorte",
+          "detail": "Vous renforcez votre volonté et obtenez un indice utile à la fin.",
+          "effects": {
+            "ancrage": 1
+          },
+          "learn": [
+            "nom"
+          ],
+          "flags": [
+            "nomEcrit"
+          ]
+        },
+        {
+          "id": "poser",
+          "label": "Essayer la couronne",
+          "next": "voix",
+          "detail": "Vous gagnez de la puissance, mais perdez de la volonté.",
+          "effects": {
+            "puissance": 1,
+            "voix": 1,
+            "ancrage": -1
+          }
+        }
+      ],
+      "place": "L’ATELIER DES LIVRES MUETS",
+      "goal": "Décider comment approcher l’objet magique."
+    },
+    "voix": {
+      "id": "voix",
+      "chapter": 1,
+      "title": "Un roi dans votre tête",
+      "text": [
+        "En portant la couronne, vous entendez Odran, un ancien roi. Il vous donne des ordres et commence à faire bouger votre main contre votre volonté.",
+        "Vous retirez l’objet. Une question sur son fils le fait taire : ses souvenirs peuvent affaiblir son contrôle. Vous pouvez retenir cette méthode ou apprendre une technique de combat."
+      ],
+      "choices": [
+        {
+          "id": "question",
+          "label": "Retenir la question qui arrête Odran",
+          "next": "escorte",
+          "detail": "Vous apprenez à résister aux esprits.",
+          "effects": {
+            "ancrage": 1
+          },
+          "learn": [
+            "question"
+          ]
+        },
+        {
+          "id": "ecole",
+          "label": "Apprendre à combattre avec Odran",
+          "next": "escorte",
+          "detail": "Vous gagnez de la puissance, mais son influence augmente.",
+          "effects": {
+            "puissance": 1,
+            "voix": 1
+          },
+          "flags": [
+            "geste"
+          ]
+        }
+      ],
+      "place": "DEVANT LE MIROIR FENDU",
+      "goal": "Apprendre à résister à Odran ou accepter son enseignement."
+    },
+    "escorte": {
+      "id": "escorte",
+      "chapter": 1,
+      "title": "Ysra vous accompagne",
+      "text": [
+        "Ysra, une chevalière, vient vous conduire au palais. Elle vous prévient : six esprits habitent la couronne. Les précédents héritiers ont perdu le contrôle en la portant.",
+        "Elle veut vous aider à rester vous-même. Vous pouvez lui confier l’objet pendant le trajet ou le garder en lui expliquant ce que vous entendez."
+      ],
+      "choices": [
+        {
+          "id": "confier",
+          "label": "Lui confier la couronne jusqu’au palais",
+          "next": "portail",
+          "detail": "Un acte de confiance vous aide à rester vous-même.",
+          "effects": {
+            "serments": 1,
+            "ancrage": 1
+          },
+          "flags": [
+            "ysra"
+          ]
+        },
+        {
+          "id": "garder",
+          "label": "La garder, mais lui expliquer les voix",
+          "next": "portail",
+          "detail": "Vous obtenez son aide sans céder votre seul avantage.",
+          "effects": {
+            "serments": 1
+          },
+          "learn": [
+            "six"
+          ]
+        }
+      ],
+      "place": "LE PONT DES RELIEURS",
+      "goal": "Choisir si vous confiez la couronne à votre alliée."
+    },
+    "portail": {
+      "id": "portail",
+      "chapter": 1,
+      "title": "Entrer dans le palais",
+      "text": [
+        "La grande porte du palais n’obéit qu’à une voix royale. Odran propose de parler à travers vous pour l’ouvrir.",
+        "Un serviteur connaît aussi une autre entrée. Passer par là demande un effort physique, mais évite de donner davantage de contrôle à l’esprit."
+      ],
+      "choices": [
+        {
+          "id": "ordre",
+          "label": "Commander avec la voix d’Odran",
+          "next": "cendre",
+          "detail": "La porte obéit. Le roi prend davantage de place.",
+          "effects": {
+            "voix": 1,
+            "puissance": 1,
+            "ancrage": -1
+          },
+          "learn": [
+            "porte"
+          ]
+        },
+        {
+          "id": "service",
+          "label": "Demander au valet de vous montrer la porte de service",
+          "next": "cendre",
+          "detail": "Vous gagnez sa confiance et traversez une cour dangereuse.",
+          "effects": {
+            "souffle": -2,
+            "serments": 1
+          },
+          "learn": [
+            "porte"
+          ],
+          "flags": [
+            "valet"
+          ]
+        }
+      ],
+      "place": "LE PALAIS DES SIX DEUILS",
+      "goal": "Choisir le pouvoir magique ou l’aide d’un serviteur."
+    },
+    "cendre": {
+      "id": "cendre",
+      "chapter": 2,
+      "title": "Le pouvoir d’Odran",
+      "text": [
+        "Vous entrez dans la salle d’Odran. Ce roi avait brûlé des quartiers pour sauver sa capitale. Son propre fils est mort dans l’incendie.",
+        "Il vous offre un pouvoir de feu. Vous pouvez l’accepter, au risque de renforcer son influence, ou lire les témoignages pour comprendre comment battre son gardien."
+      ],
+      "choices": [
+        {
+          "id": "braise",
+          "label": "Accepter le pouvoir de feu",
+          "next": "duel-cendre",
+          "detail": "Plus de puissance, moins de volonté et davantage d’influence des esprits.",
+          "effects": {
+            "puissance": 2,
+            "voix": 1,
+            "ancrage": -1
+          },
+          "flags": [
+            "braise"
+          ],
+          "learn": [
+            "odran"
+          ]
+        },
+        {
+          "id": "preuve",
+          "label": "Chercher la faiblesse du gardien",
+          "next": "duel-cendre",
+          "detail": "Vous apprenez comment l’affaiblir sans emprunter de pouvoir.",
+          "effects": {
+            "souffle": -1
+          },
+          "learn": [
+            "odran",
+            "question"
+          ]
+        }
+      ],
+      "checkpoint": true,
+      "place": "LA SALLE DES CENDRES",
+      "goal": "Obtenir une arme ou chercher la faiblesse du gardien."
+    },
+    "duel-cendre": {
+      "id": "duel-cendre",
+      "chapter": 2,
+      "title": "Le gardien de feu",
+      "text": [
+        "Un gardien en armure bloque la sortie. Sa défense cède lorsqu’on rappelle à Odran la mort de son fils.",
+        "Si vous avez appris cette histoire, vous pouvez l’utiliser. Sinon, votre puissance peut briser l’armure, ou vous pouvez subir un coup pour laisser Ysra attaquer."
+      ],
+      "choices": [
+        {
+          "id": "force",
+          "label": "Briser la cuirasse avec la braise",
+          "next": "repos",
+          "detail": "Puissance 3 nécessaire. Vous encaissez une brûlure.",
+          "effects": {
+            "souffle": -2
+          },
+          "requires": {
+            "min": {
+              "puissance": 3
+            }
+          }
+        },
+        {
+          "id": "nommer",
+          "label": "Rappeler à Odran la mort de son fils",
+          "next": "repos",
+          "detail": "Votre enquête permet de vaincre le gardien avec moins de blessures.",
+          "effects": {
+            "souffle": -1
+          },
+          "requires": {
+            "known": [
+              "odran",
+              "question"
+            ]
+          },
+          "learn": [
+            "loi"
+          ]
+        },
+        {
+          "id": "tenir",
+          "label": "Tenir la lame pendant qu’Ysra frappe",
+          "next": "repos",
+          "detail": "Une victoire coûteuse, possible sans pouvoir.",
+          "effects": {
+            "souffle": -5,
+            "serments": 1
+          },
+          "flags": [
+            "blessure"
+          ]
+        }
+      ],
+      "place": "LE DUEL DE CENDRE",
+      "goal": "Passer le premier duel."
+    },
+    "repos": {
+      "id": "repos",
+      "chapter": 2,
+      "title": "La fille d’Ysra",
+      "text": [
+        "Tessa, la fille d’Ysra, vous accueille dans son atelier de peinture. Une activité familière vous aide à ne plus écouter les esprits.",
+        "Vous pouvez accepter ses soins en réparant un portrait, ou demander aux domestiques de vous soutenir pour la suite."
+      ],
+      "choices": [
+        {
+          "id": "soigner",
+          "label": "Vous soigner auprès de Tessa",
+          "next": "verre",
+          "detail": "Vous récupérez de la santé et de la volonté.",
+          "effects": {
+            "souffle": 4,
+            "ancrage": 1
+          },
+          "flags": [
+            "atelier"
+          ]
+        },
+        {
+          "id": "rallier",
+          "label": "Demander le soutien des domestiques",
+          "next": "verre",
+          "detail": "Vous gagnez des alliés et un indice pour les miroirs.",
+          "effects": {
+            "serments": 2
+          },
+          "learn": [
+            "serviteurs"
+          ]
+        }
+      ],
+      "place": "LA CHAPELLE DES PORTRAITS",
+      "goal": "Récupérer des forces ou chercher des alliés."
+    },
+    "verre": {
+      "id": "verre",
+      "chapter": 3,
+      "title": "Le pouvoir de Séliane",
+      "text": [
+        "Séliane, une ancienne reine, vous parle dans la salle des miroirs. Elle peut vous apprendre à voir les pièges, mais sa voix prendra plus de place dans votre esprit.",
+        "Cette reine soupçonnait même ses serviteurs fidèles de la trahir. Vous pouvez accepter son regard magique ou chercher l’histoire de sa dernière servante."
+      ],
+      "choices": [
+        {
+          "id": "miroir",
+          "label": "Accepter le pouvoir de vision",
+          "next": "duel-verre",
+          "detail": "Vous repérerez les pièges, mais Séliane aura plus d’influence sur vous.",
+          "effects": {
+            "puissance": 1,
+            "voix": 2,
+            "ancrage": -1
+          },
+          "flags": [
+            "regard"
+          ],
+          "learn": [
+            "seliane"
+          ]
+        },
+        {
+          "id": "servante",
+          "label": "Enquêter sur la servante de Séliane",
+          "next": "duel-verre",
+          "detail": "Son histoire vous aide à comprendre le piège des miroirs.",
+          "effects": {
+            "souffle": -1,
+            "serments": 1
+          },
+          "learn": [
+            "seliane",
+            "serviteurs"
+          ]
+        }
+      ],
+      "checkpoint": true,
+      "place": "LA GALERIE SANS PORTRAIT",
+      "goal": "Choisir entre un pouvoir de vision et une enquête."
+    },
+    "duel-verre": {
+      "id": "duel-verre",
+      "chapter": 3,
+      "title": "Le piège des trois reflets",
+      "text": [
+        "Trois reflets apparaissent. Frapper une fausse image vous blessera. Le troisième reste immobile, les mains derrière le dos.",
+        "Tessa reconnaît la posture d’une servante. Son témoignage ou le pouvoir de Séliane peuvent vous aider. Sans ces préparations, il faut traverser en encaissant les coups."
+      ],
+      "choices": [
+        {
+          "id": "regard",
+          "label": "Désigner le vrai reflet avec le regard royal",
+          "next": "serment",
+          "detail": "Vous le reconnaissez avant qu’il frappe.",
+          "effects": {
+            "ancrage": -1
+          },
+          "requires": {
+            "flags": [
+              "regard"
+            ]
+          },
+          "learn": [
+            "reflet"
+          ]
+        },
+        {
+          "id": "temoin",
+          "label": "Suivre le conseil de Tessa",
+          "next": "serment",
+          "detail": "L’indice des serviteurs permet de passer sans blessure.",
+          "effects": {
+            "serments": 1
+          },
+          "requires": {
+            "known": [
+              "serviteurs"
+            ]
+          },
+          "learn": [
+            "reflet"
+          ]
+        },
+        {
+          "id": "traverser",
+          "label": "Traverser les trois attaques sous votre manteau",
+          "next": "serment",
+          "detail": "Vous choisissez une blessure plutôt qu’un pari.",
+          "effects": {
+            "souffle": -5
+          },
+          "learn": [
+            "reflet"
+          ]
+        }
+      ],
+      "place": "LE DUEL DES TROIS REFLETS",
+      "goal": "Trouver comment traverser sans vous blesser."
+    },
+    "serment": {
+      "id": "serment",
+      "chapter": 3,
+      "title": "Le droit de vous arrêter",
+      "text": [
+        "Ysra vous demande une promesse : si la couronne vous contrôle, elle doit pouvoir vous l’enlever, même devant toute la cour.",
+        "Vous pouvez lui donner ce droit sans condition. Vous pouvez aussi lui proposer seulement une place au conseil, ce qui vous laissera davantage de pouvoir."
+      ],
+      "choices": [
+        {
+          "id": "droit",
+          "label": "Autoriser Ysra à vous retirer la couronne",
+          "next": "maree",
+          "detail": "Vous renforcez votre volonté et son soutien.",
+          "effects": {
+            "serments": 1,
+            "ancrage": 2
+          },
+          "flags": [
+            "contrepoids"
+          ],
+          "learn": [
+            "serment"
+          ]
+        },
+        {
+          "id": "pouvoir",
+          "label": "Lui proposer seulement une place au conseil",
+          "next": "maree",
+          "detail": "Vous gagnez du soutien et de la puissance.",
+          "effects": {
+            "serments": 1,
+            "puissance": 1
+          },
+          "flags": [
+            "conseil"
+          ]
+        }
+      ],
+      "place": "L’ESCALIER DES BANNIÈRES",
+      "goal": "Fixer une limite à votre futur pouvoir."
+    },
+    "maree": {
+      "id": "maree",
+      "chapter": 4,
+      "title": "Le pouvoir de Neral",
+      "text": [
+        "Neral, un ancien roi, avait sauvé des réfugiés en bateau. Il les a ensuite empêchés de débarquer pour garder le contrôle sur eux.",
+        "Son pouvoir peut vous protéger d’une vague. L’accepter renforce sa présence dans votre tête. Les anciens passagers ont aussi laissé une carte pour passer sans lui obéir."
+      ],
+      "choices": [
+        {
+          "id": "marée",
+          "label": "Accepter la protection magique de Neral",
+          "next": "duel-maree",
+          "detail": "Vous gagnez de la puissance, mais perdez de la volonté.",
+          "effects": {
+            "puissance": 1,
+            "voix": 1,
+            "ancrage": -1
+          },
+          "flags": [
+            "maree"
+          ],
+          "learn": [
+            "neral"
+          ]
+        },
+        {
+          "id": "manifeste",
+          "label": "Chercher le passage sur la carte des passagers",
+          "next": "duel-maree",
+          "detail": "Vous apprenez une route qui évite le gardien.",
+          "effects": {
+            "souffle": -1,
+            "serments": 1
+          },
+          "learn": [
+            "neral",
+            "rivage"
+          ]
+        }
+      ],
+      "checkpoint": true,
+      "place": "LA SALLE SOUS LES EAUX",
+      "goal": "Préparer le passage dans la salle inondée."
+    },
+    "duel-maree": {
+      "id": "duel-maree",
+      "chapter": 4,
+      "title": "La vague du gardien",
+      "text": [
+        "Un gardien arrive sous l’eau. Une vague dangereuse le précède.",
+        "Vous pouvez utiliser la protection de Neral, soulever la passerelle avec assez de puissance ou suivre la route trouvée dans les témoignages. Le passage contre le mur reste accessible, mais il vous épuisera."
+      ],
+      "choices": [
+        {
+          "id": "maree",
+          "label": "Laisser la marée prendre le premier choc",
+          "next": "crypte",
+          "detail": "Une défense acquise a enfin son usage.",
+          "effects": {
+            "souffle": -1
+          },
+          "requires": {
+            "flags": [
+              "maree"
+            ]
+          },
+          "learn": [
+            "battement"
+          ]
+        },
+        {
+          "id": "puissance",
+          "label": "Soulever la passerelle d’une seule main",
+          "next": "crypte",
+          "detail": "La force suffit si vous en avez conservé assez.",
+          "effects": {
+            "souffle": -2
+          },
+          "requires": {
+            "min": {
+              "puissance": 4
+            }
+          },
+          "learn": [
+            "battement"
+          ]
+        },
+        {
+          "id": "courant",
+          "label": "Suivre le courant vers le rivage",
+          "next": "crypte",
+          "detail": "La route des passagers évite le gardien.",
+          "effects": {},
+          "requires": {
+            "known": [
+              "rivage"
+            ]
+          },
+          "learn": [
+            "battement"
+          ]
+        },
+        {
+          "id": "mur",
+          "label": "Passer le long du mur en apnée",
+          "next": "crypte",
+          "detail": "Cette voie reste ouverte, mais coûte beaucoup de santé.",
+          "effects": {
+            "souffle": -5
+          }
+        }
+      ],
+      "place": "LE DUEL DE LA VAGUE",
+      "goal": "Traverser la salle inondée."
+    },
+    "crypte": {
+      "id": "crypte",
+      "chapter": 4,
+      "title": "Les notes de votre père",
+      "text": [
+        "Dans la crypte, vous trouvez les notes de votre père. Il avait lui aussi porté la couronne, puis réussi à la quitter.",
+        "Il explique comment les six esprits se relaient pour contrôler le porteur. Étudier leur fonctionnement peut vous libérer. Absorber l’énergie laissée ici vous rendra plus fort, mais plus vulnérable à leurs voix."
+      ],
+      "choices": [
+        {
+          "id": "cercle",
+          "label": "Étudier comment les esprits vous contrôlent",
+          "next": "veille",
+          "detail": "Vous récupérez de la volonté et préparez une fin de libération.",
+          "effects": {
+            "ancrage": 1
+          },
+          "learn": [
+            "cercle",
+            "nom"
+          ]
+        },
+        {
+          "id": "heritage",
+          "label": "Absorber l’énergie laissée par votre père",
+          "next": "veille",
+          "detail": "Vous gagnez de la puissance au prix de votre volonté.",
+          "effects": {
+            "puissance": 2,
+            "voix": 1,
+            "ancrage": -1
+          },
+          "learn": [
+            "cercle"
+          ]
+        }
+      ],
+      "place": "LA CRYPTE DES RELIEURS",
+      "goal": "Chercher une méthode de libération ou gagner de la puissance."
+    },
+    "veille": {
+      "id": "veille",
+      "chapter": 5,
+      "title": "Un dernier repos",
+      "text": [
+        "Tessa vous montre un portrait de vous avant cette aventure. Cela vous rappelle que vous êtes une personne, pas seulement un candidat au trône.",
+        "Vous pouvez vous soigner, renforcer vos alliances ou vous entraîner. Ce choix vous prépare aux dernières salles du palais."
+      ],
+      "choices": [
+        {
+          "id": "atelier",
+          "label": "Vous reposer en réparant un livre",
+          "next": "audience",
+          "detail": "Vous récupérez de la santé et de la volonté.",
+          "effects": {
+            "souffle": 5,
+            "ancrage": 2
+          },
+          "flags": [
+            "portrait"
+          ]
+        },
+        {
+          "id": "allies",
+          "label": "Parler avec vos alliés",
+          "next": "audience",
+          "detail": "Vous gagnez du soutien et de la volonté.",
+          "effects": {
+            "serments": 2,
+            "ancrage": 1
+          },
+          "learn": [
+            "vivants"
+          ]
+        },
+        {
+          "id": "geste",
+          "label": "Vous entraîner pour la dernière salle",
+          "next": "audience",
+          "detail": "Vous gagnez de la puissance mais perdez de la volonté.",
+          "effects": {
+            "puissance": 1,
+            "ancrage": -1
+          }
+        }
+      ],
+      "checkpoint": true,
+      "place": "LA CHAPELLE AVANT L’AUBE",
+      "goal": "Préparer votre arrivée devant le conseil."
+    },
+    "audience": {
+      "id": "audience",
+      "chapter": 5,
+      "title": "Le conseil vous attend",
+      "text": [
+        "Le conseil veut organiser votre couronnement. Des domestiques attendent dehors pour savoir s’ils auront le droit de donner leur avis.",
+        "Vous pouvez les faire entrer si vous avez gagné assez de soutien, imposer le silence avec votre puissance ou forcer le passage malgré les gardes."
+      ],
+      "choices": [
+        {
+          "id": "place",
+          "label": "Faire entrer les habitants avec vous",
+          "next": "choeur",
+          "detail": "Vos alliés participent à la décision.",
+          "effects": {
+            "serments": 1
+          },
+          "requires": {
+            "min": {
+              "serments": 2
+            }
+          },
+          "flags": [
+            "temoins"
+          ],
+          "learn": [
+            "vivants"
+          ]
+        },
+        {
+          "id": "trone",
+          "label": "Imposer le silence par votre puissance",
+          "next": "choeur",
+          "detail": "Vous obtenez le passage et renforcez la présence des morts.",
+          "effects": {
+            "voix": 1
+          },
+          "requires": {
+            "min": {
+              "puissance": 3
+            }
+          },
+          "flags": [
+            "silence"
+          ]
+        },
+        {
+          "id": "refuser",
+          "label": "Refuser le verdict et forcer la porte du trône",
+          "next": "choeur",
+          "detail": "Votre refus est possible sans titre, mais les gardes vous frappent.",
+          "effects": {
+            "souffle": -3
+          },
+          "flags": [
+            "refus"
+          ]
+        }
+      ],
+      "place": "L’AUDIENCE DU CONSEIL",
+      "goal": "Décider comment entrer dans la salle du trône."
+    },
+    "choeur": {
+      "id": "choeur",
+      "chapter": 6,
+      "title": "Les six esprits attaquent",
+      "text": [
+        "Les six esprits parlent en même temps pour vous faire perdre votre volonté. Vous êtes dans la salle du trône, tout près du but.",
+        "Vous pouvez leur rappeler leurs histoires si vous les connaissez, demander l’aide d’Ysra selon votre promesse ou résister par un effort physique."
+      ],
+      "choices": [
+        {
+          "id": "noms",
+          "label": "Rappeler aux esprits leur passé",
+          "next": "choix",
+          "detail": "Vos indices vous aident à reprendre le contrôle.",
+          "effects": {
+            "ancrage": 1
+          },
+          "requires": {
+            "known": [
+              "odran",
+              "seliane",
+              "neral"
+            ]
+          },
+          "learn": [
+            "liberation"
+          ]
+        },
+        {
+          "id": "volonte",
+          "label": "Résister en vous appuyant sur votre serment",
+          "next": "choix",
+          "detail": "Ysra vous rend la parole au prix d’un dernier effort.",
+          "effects": {
+            "souffle": -2
+          },
+          "requires": {
+            "flags": [
+              "contrepoids"
+            ]
+          },
+          "learn": [
+            "liberation"
+          ]
+        },
+        {
+          "id": "puissance",
+          "label": "Saisir le cercle avec vos propres mains",
+          "next": "choix",
+          "detail": "Vous affrontez directement l’influence des morts.",
+          "effects": {
+            "souffle": -3
+          },
+          "learn": [
+            "liberation"
+          ]
+        }
+      ],
+      "checkpoint": true,
+      "place": "LE TRÔNE SANS ASSISE",
+      "goal": "Garder le contrôle de votre esprit."
+    },
+    "choix": {
+      "id": "choix",
+      "chapter": 6,
+      "title": "Que faire de la couronne ?",
+      "text": [
+        "Vous pouvez libérer les esprits et partager le gouvernement avec les vivants. Vous pouvez aussi devenir roi en gardant les pouvoirs, si vous avez assez de force et de volonté.",
+        "Une troisième solution consiste à détruire la couronne avec l’aide de vos alliés. Chaque voie demande une préparation différente, affichée sous le choix."
+      ],
+      "choices": [
+        {
+          "id": "liberer",
+          "label": "Libérer les esprits et gouverner avec les habitants",
+          "next": "fin-libre",
+          "detail": "Il faut 4 Volonté, 3 Soutiens et les indices sur votre nom, le cercle et la libération.",
+          "effects": {},
+          "requires": {
+            "min": {
+              "ancrage": 4,
+              "serments": 3
+            },
+            "known": [
+              "nom",
+              "cercle",
+              "liberation"
+            ]
+          }
+        },
+        {
+          "id": "regner",
+          "label": "Devenir roi en gardant les pouvoirs",
+          "next": "fin-roi",
+          "detail": "Il faut 5 Puissance, 2 Volonté, au plus 6 Influence et l’indice du cercle.",
+          "effects": {},
+          "requires": {
+            "min": {
+              "puissance": 5,
+              "ancrage": 2
+            },
+            "max": {
+              "voix": 6
+            },
+            "known": [
+              "cercle"
+            ]
+          }
+        },
+        {
+          "id": "briser",
+          "label": "Détruire la couronne avec vos alliés",
+          "next": "fin-cendres",
+          "detail": "Il faut 3 Puissance et 2 Soutiens.",
+          "effects": {},
+          "requires": {
+            "min": {
+              "puissance": 3,
+              "serments": 2
+            }
+          }
+        },
+        {
+          "id": "ceder",
+          "label": "Laisser les esprits décider : abandonner la tentative",
+          "next": "choix",
+          "detail": "Vous échouez et devrez reprendre au début du chapitre.",
+          "effects": {},
+          "fail": "Votre bouche prononce six décrets à la fois. Ysra arrache la couronne avant qu’il ne reste plus de place pour votre nom."
+        }
+      ],
+      "place": "LE CERCLE OUVERT",
+      "goal": "Choisir votre avenir et celui du royaume."
+    },
+    "fin-libre": {
+      "id": "fin-libre",
+      "chapter": 6,
+      "title": "Le pouvoir est partagé",
+      "text": [
+        "Vous libérez les esprits de la couronne. Ils ne peuvent plus contrôler personne.",
+        "Vous dirigez le royaume avec un conseil ouvert aux habitants. Ysra garde le droit de vous contredire et Tessa reprend son atelier. Le royaume avance grâce à plusieurs personnes."
+      ],
+      "choices": [],
+      "ending": "libre",
+      "place": "LA TABLE DES VIVANTS",
+      "goal": "Votre aventure est terminée."
+    },
+    "fin-roi": {
+      "id": "fin-roi",
+      "chapter": 6,
+      "title": "Vous devenez roi",
+      "text": [
+        "Vous gardez la couronne et les six pouvoirs, mais les esprits ne décident plus à votre place. Vous devenez roi.",
+        "Ysra reste près de vous pour vous rappeler vos limites. Chaque soir, vous retirez la couronne pour vérifier que vous êtes encore capable de le faire."
+      ],
+      "choices": [],
+      "ending": "roi",
+      "place": "LE PREMIER SOIR DU RÈGNE",
+      "goal": "Votre aventure est terminée."
+    },
+    "fin-cendres": {
+      "id": "fin-cendres",
+      "chapter": 6,
+      "title": "La couronne est détruite",
+      "text": [
+        "Vous brisez la couronne. Les esprits et leurs pouvoirs disparaissent. Personne ne pourra plus être contrôlé par cet objet.",
+        "Le royaume doit apprendre à se protéger sans magie royale. Vos alliés organisent l’aide aux habitants et vous pouvez enfin retourner à votre atelier."
+      ],
+      "choices": [],
+      "ending": "cendres",
+      "place": "L’ATELIER ROUVERT",
+      "goal": "Votre aventure est terminée."
+    }
+  },
+  "guide": {
+    "hero": "Maël, un relieur devenu héritier du trône",
+    "mission": "Traverser le palais sans laisser une couronne magique contrôler votre esprit."
+  }
 });

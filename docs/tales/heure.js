@@ -1,43 +1,1020 @@
-(function(root,factory){const S=factory();if(typeof module==='object'&&module.exports)module.exports=S;else(root.DestinyBooks=root.DestinyBooks||[]).push(S);})(typeof globalThis!=='undefined'?globalThis:this,function(){
-const N={},n=(id,chapter,title,text,choices,extra={})=>N[id]={id,chapter,title,text:text.split('||'),choices,...extra},c=(id,label,next,detail,effects={},extra={})=>({id,label,next,detail,effects,...extra});
-n('arrivee',1,'Une minute de trop',"À 18 h 30, le tram dépose Inès Marceau au terminus des Salines. Vous descendez avec une montre que votre frère vous a laissée, six ans plus tôt. Elle avance normalement jusqu’à la treizième seconde. Puis son aiguille fait un pas en arrière.||La ville ne semble pas l’avoir remarqué. Votre appareil auditif vous transmet le frottement de la pluie contre l’auvent, les portes du tram, une annonce d’orage. Au cadran du beffroi, toutes les aiguilles indiquent pourtant déjà minuit. Milo, votre petit frère, vous a donné rendez-vous sous cette horloge. Il n’est pas venu.",[
-c('quai','Relever l’anomalie du quai','quai','Vous consacrez une unité de temps à observer le phénomène.',{temps:-1},{learn:['decalage']}),c('appel','Appeler Milo avant toute autre chose','appel','Son répondeur connaît peut-être votre rendez-vous.',{temps:-1})],{place:'TERMINUS DES SALINES',time:'18 H 30'});
-n('quai',1,'L’annonce de demain',"L’afficheur annonce une rame partie il y a douze minutes. Une contrôleuse, Yara, vous montre le journal du service : la même voiture a disparu hier du réseau, à 00 h 13. Ce soir, le relevé est déjà rempli.||« On me demande de signer pour des gens que je n’ai pas vus rentrer. » Elle refuse de vous laisser emporter le registre mais accepte que vous notiez ses lignes. Sur la dernière, votre nom apparaît. Votre écriture aussi. Vous lui racontez la montre de Milo. Elle cesse immédiatement de sourire.",[
-c('yara','Confier à Yara l’endroit du rendez-vous','place','Vous gagnez une alliée, au prix de temps et de sang-froid.',{temps:-1,calme:-1,lien:1},{flags:['yara'],learn:['tram']}),c('copie','Copier le numéro de la rame et partir','place','Vous économisez vos forces. Le relevé restera votre seule preuve.',{}, {learn:['tram']})],{speaker:'Yara',place:'LE QUAI NUMÉRO TREIZE'});
-n('appel',1,'Une voix en avance',"Le téléphone sonne dans votre main avant que vous ayez composé le numéro. Milo vous demande de ne surtout pas entrer dans le beffroi. Sa voix est calme d’une manière qui vous blesse davantage que la peur.||Il décrit ce que vous portez, puis la tache de pluie qui n’a pas encore atteint votre manche. « Si tu m’aimes, garde quelqu’un avec toi. » La ligne coupe. Vous pourriez appeler les urgences, mais il faudrait leur expliquer comment la voix de votre frère vient de prédire une goutte d’eau.",[
-c('ecouter','Réécouter jusqu’au bruit de fond','place','Vous identifiez une sirène de maintenance.',{calme:-1},{learn:['sirene']}),c('chercher','Demander de l’aide à la contrôleuse','place','Yara accepte de vous accompagner à la place.',{temps:-1,lien:1},{flags:['yara']})],{place:'SOUS L’AUVENT'});
-n('place',1,'Le garçon qui attend',"Sur la place, un enfant tient un parapluie trop grand. Il affirme attendre sa mère depuis vingt heures. Son sac porte encore l’étiquette d’une école fermée depuis six ans. Les passants contournent sa silhouette sans jamais tourner la tête.||Il vous reconnaît. « Cette fois, tu n’as pas la même veste. » Vous vous agenouillez pour lire son prénom : Noé. Son parapluie vous protège tous les deux. Le cadran du beffroi vient de passer de minuit à minuit douze, sans parcourir les heures intermédiaires.",[
-c('noe','Rester avec Noé et noter ses souvenirs','atelier','Le lien humain vous ancre ; cette rencontre coûte du temps.',{temps:-2,lien:2},{learn:['noe'],flags:['noe']}),c('photo','Photographier son badge et chercher l’horlogère','atelier','Vous conservez une piste, mais laissez l’enfant attendre.',{temps:-1,calme:-1},{learn:['noe']})],{place:'PLACE DU BEFFROI',time:'19 H 10'});
-n('atelier',2,'Les objets qui ne recommencent pas',"L’atelier de Jeanne Sorel est une pièce étroite suspendue au-dessus d’un cinéma abandonné. Des centaines de réveils y battent à des vitesses différentes. Jeanne, quatre-vingts ans, vous ouvre avant que vous ayez frappé. Elle porte à chaque poignet une marque laissée par une montre disparue.||Elle vous demande de choisir un objet et de le décrire sans le regarder. Vous choisissez la montre de Milo. Quand vous relevez les yeux, le cadran est intact mais votre description est gravée à l’intérieur. « Voilà ce qui survit. Pas les objets. Ce qu’on sait d’eux. »",[
-c('mecanisme','Étudier ce qui résiste au retour','dossier','Vous découvrez la règle des boucles.',{temps:-1},{learn:['ancrage']}),c('repos','Accepter un thé et raconter votre frère','dossier','Jeanne vous aide à retrouver votre calme.',{temps:-1,calme:3,lien:1},{flags:['jeanne']})],{checkpoint:true,place:'ATELIER SOREL',speaker:'Jeanne'});
-n('dossier',2,'Une signature au bas du ciel',"Jeanne travaillait au beffroi lorsque la ville a décidé de supprimer treize minutes à ses horloges publiques. Un réglage technique, disait le dossier. En réalité, ces minutes contenaient un accident que personne ne voulait inscrire au bilan.||Treize personnes sont mortes dans un tunnel de tram. Parmi elles, la mère de Noé. Jeanne a aidé les familles à installer un mécanisme commémoratif. Puis le mécanisme a commencé à offrir des soirées supplémentaires aux proches qui refusaient de partir. Il n’a jamais appris à les terminer.",[
-c('plan','Lire le plan de la chambre basse','tunnel','Une clé de sortie se cache dans les plans.',{temps:-1},{learn:['chambre']}),c('milo','Rechercher le nom de Milo dans les dossiers','enregistrement','Votre frère a déjà pénétré dans le mécanisme.',{temps:-1,calme:-1},{learn:['milo']})],{place:'LES DOSSIERS SOUS L’ÉTABLI'});
-n('enregistrement',2,'Ce qu’il n’a pas osé dire',"Une cassette porte la voix de Milo à dix-sept ans. Il y explique comment refaire le trajet de sa mère pour la revoir. Vous aviez trente-deux ans lorsqu’il vous a donné sa montre, et lui aussi aurait dû vieillir. Sur la bande, sa voix n’a pas changé.||Votre souvenir de son départ se fissure. Vous ne l’avez pas attendu six ans. Vous avez attendu une même soirée assez souvent pour que les années deviennent une explication supportable. Jeanne ne vous touche pas. Elle pose seulement une chaise près de la vôtre, comme on réserve une place au retour de quelqu’un.",[
-c('verite','Garder la cassette et accepter ce souvenir','tunnel','Vous trouvez une vérité pénible, indispensable à certaines issues.',{calme:-2},{learn:['milo','seul']}),c('couper','Éteindre avant la fin et demander de l’aide','tunnel','Vous préservez votre calme et refusez de rester seule.',{lien:1},{flags:['jeanne']})],{speaker:'Jeanne',place:'LE MAGNÉTOPHONE'});
-n('tunnel',3,'Le passage entre deux rames',"Yara vous attend au portail de maintenance, si vous lui avez confié votre rendez-vous. Sinon, vous ne trouvez que son trousseau et une note : elle refuse désormais de signer les départs sans retour. À l’intérieur, les rails reflètent un ciel qui n’existe pas au-dessus de la ville.||Deux rames traversent le même tunnel en sens contraire. Leurs phares passent l’un dans l’autre. Entre leurs arrivées, une petite porte s’ouvre pendant treize battements. Vous pouvez observer le cycle, utiliser vos souvenirs d’un précédent passage, ou tenter votre chance.",[
-c('cycle','Compter les battements et laisser passer deux trains','aiguillage','Prudent, mais lent.',{temps:-2},{learn:['cycle']}),c('souvenir','Passer au battement déjà mémorisé','aiguillage','Votre savoir économise du temps.',{}, {requires:{known:['cycle']}}),c('course','Courir entre les reflets','aiguillage','Rapide ; vous vous épuisez à traverser une rame fantôme.',{calme:-4})],{checkpoint:true,place:'TUNNEL DES SALINES',time:'21 H 04'});
-n('aiguillage',3,'La poignée rouge',"Un aiguillage manuel relie la chambre des noms au quai principal. Sa poignée rouge est chaude. Derrière le vitrage, vous apercevez Noé assis dans la rame absente, son parapluie posé sur les genoux. Il vous regarde comme s’il savait déjà ce que vous allez choisir.||La poignée permettrait de ramener la rame. Elle retarderait aussi la maintenance qui doit vous ouvrir le beffroi. Au mur, une consigne précise que la dérivation ne peut supporter qu’une personne à la fois. L’encre est récente. Quelqu’un a ajouté : « Ne confondez pas attendre et retenir. »",[
-c('ramener','Ramener Noé sur le quai réel','refuge','Vous donnez du temps à quelqu’un qui en manque.',{temps:-2,lien:2},{flags:['noeSauve'],learn:['derivation']}),c('regle','Mémoriser la dérivation pour la suite','refuge','Vous conservez le trajet et votre avance.',{calme:-1},{learn:['derivation']})],{place:'LE POSTE D’AIGUILLAGE'});
-n('refuge',3,'Les noms sur les gobelets',"La cafétéria du dépôt est vide, mais chaque gobelet porte un prénom. Yara a dressé cette table pour ses collègues disparus. Elle revient chaque soir avec du café neuf. Personne ne lui a expliqué pourquoi les tasses sont encore chaudes lorsqu’elle arrive.||Vous lui racontez ce que Jeanne vous a montré. Elle ne demande pas de preuve. Elle demande si les gens qui reviendront auront encore besoin de leur place à table. À cet instant, l’enquête devient plus difficile qu’un mécanisme à réparer : elle possède des visages et des habitudes que vous ne pourrez pas remettre à zéro sans les entendre.",[
-c('repas','Partager un repas avant l’ascension','archive','Un vrai repos et un lien plus solide.',{temps:-1,calme:4,lien:1},{flags:['repas']}),c('partir','Emporter le registre des disparus','archive','Les treize noms deviennent des indices.',{}, {learn:['noms']})],{speaker:'Yara',place:'CAFÉTÉRIA DU DÉPÔT'});
-n('archive',4,'Les treize places vides',"L’entrée des archives municipales est gardée par une veilleuse, Lise, qui vieillit à chaque retour. Elle n’a pas de montre. Elle dit que les objets ne lui rendent plus service depuis qu’elle a accepté de retenir le nom des morts pour les autres.||Sur son bureau, une carte de la ville contient treize trous. Le plus petit se trouve à l’emplacement de votre appartement d’enfance. Le plus grand occupe toute la place du beffroi. Lise vous avertit : le mécanisme remplace peu à peu les lieux réels par les endroits dont on se souvient le mieux.",[
-c('noms','Lire les treize noms à voix haute','ombre','Vous faites exister les absents hors du mécanisme.',{temps:-1,calme:-1},{learn:['noms','prix']}),c('lise','Prendre le relais de Lise quelques instants','ombre','Elle vous confie une clé ; porter ces noms coûte du calme.',{calme:-2,lien:1},{flags:['cle'],learn:['prix']})],{checkpoint:true,place:'ARCHIVES MUNICIPALES',speaker:'Lise'});
-n('ombre',4,'Quelqu’un se souvient de vous',"Dans la galerie, votre reflet continue de marcher lorsque vous vous arrêtez. Il porte une veste que vous n’avez jamais achetée. Puis il lève la main gauche : votre montre y est brisée.||Cette autre Inès ne vous menace pas. Elle vous supplie de laisser Milo sur le quai cette fois. Elle a essayé de le ramener seule et a fermé la porte derrière tous les autres. L’ombre qui la suit porte vos traits à plusieurs âges. Vous comprenez que les erreurs peuvent aussi apprendre à recommencer.",[
-c('ecouter','Écouter l’autre Inès jusqu’au bout','sirene','Une révélation difficile ouvre une issue différente.',{calme:-2},{learn:['seul','ombre']}),c('arreter','Immobiliser le reflet avec un Écho','sirene','Vous utilisez une faculté acquise entre les boucles.',{echo:-1},{requires:{min:{echo:1}},learn:['ombre']}),c('fuir','Fermer la galerie et poursuivre','sirene','Vous gardez vos forces, sans entendre la fin de son avertissement.',{temps:-1})],{place:'GALERIE DES REFLETS'});
-n('sirene',4,'Le signal que Milo a laissé',"La sirène de maintenance retentit sous vos pieds. Vous reconnaissez peut-être le bruit de l’appel ; sinon, le registre de Yara en indique les horaires. Trois longues notes ouvrent le passage vers la chambre basse. La quatrième attire les reflets.||Il faut couper l’alimentation sans effacer le signal. Une plaque comporte deux circuits : l’un alimente la lumière de la ville, l’autre la mémoire du tunnel. Les étiquettes ont été interverties. Des marques de doigts sont visibles sur la vis qui n’a pas de poussière.",[
-c('indice','Suivre le circuit du signal enregistré','seuil','L’indice évite une erreur de branchement.',{temps:-1},{requires:{known:['sirene']},learn:['signal']}),c('tester','Tester chaque circuit avec la lampe','seuil','Méthode fiable mais coûteuse en temps.',{temps:-2},{learn:['signal']}),c('echo','Figer la quatrième note dans votre mémoire','seuil','L’Écho vous laisse traverser sans ouvrir les circuits.',{echo:-1},{requires:{min:{echo:1}},learn:['signal']})],{place:'LE SOUS-SOL DU BEFFROI',time:'23 H 02'});
-n('seuil',5,'Milo au pied de l’escalier',"Milo est assis sur la dernière marche. Il a gardé dix-sept ans. Il a votre montre dans la main, entière, alors que la vôtre pèse encore dans votre poche. Il vous laisse parler sans vous interrompre.||Il vous explique avoir demandé une soirée de plus pour sa mère. Puis une autre pour trouver une manière de la laisser partir. Le mécanisme n’a jamais distingué les deux demandes. Il vous a fait venir parce qu’il savait que vous finiriez par poser la question qu’il évitait : combien de personnes retenait-il avec elle ?",[
-c('milo','Lui demander de revenir avec vous','accord','Vous choisissez une conversation réelle, sans promettre l’impossible.',{temps:-1,lien:1},{learn:['milo'],flags:['parole']}),c('chambre','Examiner la chambre avant de lui répondre','chambre','Les mécanismes peuvent vous apprendre ce qu’il tait.',{temps:-1},{learn:['chambre']})],{checkpoint:true,place:'ESCALIER DES CLOCHES',speaker:'Milo'});
-n('accord',5,'Une promesse qui tient une seule fois',"Vous dites à Milo que vous ne pouvez pas lui rendre leur mère. Il baisse les yeux vers la montre. « Je sais. Mais si je sors, est-ce que tu vas encore me reconnaître ? »||Le temps vous a donné une sœur adulte et un frère resté adolescent. Vous pourriez lui promettre de ne rien changer. Vous préférez lui décrire votre appartement, la fenêtre qui donne sur une boulangerie et la place qu’il faudrait libérer pour un lit. Pour la première fois de la soirée, il vous pose une question qui concerne demain.",[
-c('demain','Lui réserver une place dans votre vie réelle','chambre','Votre lien devient un point d’ancrage.',{lien:2,calme:1},{flags:['promesse'],learn:['ensemble']}),c('porter','Prendre sur vous le poids de ses souvenirs','chambre','Vous gagnez une maîtrise de l’Écho, mais vous fragilisez.',{calme:-2,echo:2},{learn:['ensemble']})],{speaker:'Milo',place:'LA MARCHE ENTRE DEUX SOIRS'});
-n('chambre',5,'Ce que la ville vous emprunte',"La chambre basse n’abrite aucune machine spectaculaire. Treize fauteuils entourent un pendule. Sur chacun, une personne se souvient de sa plus belle soirée. Le dispositif n’utilise ni la douleur ni la mort : il emprunte aux vivants les lendemains qu’ils ne savent plus désirer.||Jeanne a laissé une procédure pour délier les fauteuils. Un gardien peut aussi prendre leur place et maintenir un passage vers la ville perdue. Enfin, la dérivation du tram peut extraire une personne, en abandonnant les autres au retour. Aucun geste ne rendra intact tout ce qui s’est passé.",[
-c('notice','Lire toute la procédure de déliaison','veille','La libération exige d’avoir compris les souvenirs.',{temps:-1},{learn:['sortie','prix']}),c('gardien','Apprendre à tenir le pendule','veille','Vous préparez la possibilité de rester volontairement.',{calme:-1,echo:1},{learn:['gardien','sortie']})],{place:'LA CHAMBRE DES TREIZE'});
-n('veille',6,'00 h 12',"Le pendule s’arrête entre deux battements. La pluie derrière les vitres reste suspendue dans l’air. Vous apercevez la place, l’atelier, le dépôt. Ils ne sont pas vides : toutes les personnes auxquelles vous avez accordé du temps attendent de voir si vous allez leur en rendre.||Une découverte ne suffit plus. Il faut décider comment l’utiliser. Vous pouvez vérifier la procédure avec ceux qui vous ont suivie, stabiliser l’Écho qui vous reste ou écouter les dernières paroles du mécanisme. Après cette minute, la ville recommencera sans demander votre avis.",[
-c('ensemble','Faire relire la procédure à vos alliés','choix','Leur présence maintient le passage ouvert.',{lien:1},{requires:{min:{lien:2}},learn:['ensemble']}),c('stabiliser','Convertir du calme en un dernier Écho','choix','Vous préparez une solution solitaire.',{calme:-2,echo:1},{requires:{min:{calme:3}}}),c('verifier','Vérifier seule le texte de la procédure','choix','Vous conservez ce que vous possédez.',{}, {learn:['sortie']})],{checkpoint:true,place:'LE DERNIER BATTEMENT',time:'00 H 12'});
-n('choix',6,'Qui aura droit à demain ?',"La ville attend dans votre paume. Milo reste près de l’escalier ; vous refusez de lui demander de choisir à votre place. La petite montre avance enfin, une seconde à la fois.||Si vous avez relié assez de fragments et construit des liens, les souvenirs pourront quitter leurs fauteuils sans emporter les vivants. Vous pouvez aussi devenir la gardienne du passage, consciente du prix que Jeanne n’avait pas expliqué aux premières familles. Ou utiliser la dérivation pour ramener Milo, en acceptant que votre salut laisse d’autres personnes dans l’attente.",[
-c('liberer','Rendre les lendemains à toute la ville','fin-ville','7 découvertes, 3 liens et la procédure de sortie.',{}, {requires:{knowledge:7,min:{lien:3},known:['sortie']}}),c('garder','Prendre la place du pendule','fin-garde','6 découvertes, 1 Écho et la loi du gardien.',{echo:-1},{requires:{knowledge:6,min:{echo:1},known:['gardien']}}),c('frere','Extraire Milo par la dérivation','fin-frere','La dérivation connue et 2 liens.',{}, {requires:{min:{lien:2},known:['derivation','milo']}}),c('retour','Recommencer avec ce que vous savez','choix','Votre carnet de découvertes survit. Le reste de la soirée recommence.',{}, {fail:'00 h 13. Vous avez choisi d’apprendre encore. La ville s’efface, mais vos découvertes restent.'})],{place:'LE PENDULE'});
-n('fin-ville',6,'Une heure qui n’appartient à personne',"Les treize fauteuils se vident sans bruit. Dehors, une goutte touche enfin le sol. Puis des milliers d’autres. La ville reçoit sa première pluie qui n’a encore servi à personne. Noé ne retrouve pas sa mère vivante ; il retrouve une sœur qui a continué à l’attendre et un nom qu’il peut prononcer sans disparaître.||Milo sort derrière vous, plus jeune que son dossier d’état civil et trop âgé pour les souvenirs de ses amis. Vous n’avez pas réparé cette injustice. Vous lui laissez une clef, du temps et le droit d’être en colère.||À 00 h 14, Yara vous appelle. Elle veut savoir si le tram doit repartir. Vous regardez la place, où les passants ont enfin commencé à aller ailleurs. « Oui », dites-vous. Votre montre avance. Vous n’avez plus besoin de la surveiller.",[],{ending:'ville',place:'00 H 14 · LA PLACE RÉELLE'});
-n('fin-garde',6,'La lumière au dernier quai',"Vous prenez place au centre du pendule. Il ne vous demande ni votre nom ni un serment. Il vous laisse seulement entendre toutes les soirées que les vivants auront encore besoin de traverser. Vous posez une règle : personne ne restera sans savoir qu’une sortie existe.||Milo vous voit derrière la vitre du tram au matin. Vous ne pourrez pas prendre ce petit déjeuner ensemble. Vous lui faites signe de rentrer chez vous, où une fenêtre donne sur une boulangerie. Jeanne dépose chaque semaine une lettre au pied du beffroi. Certaines n’exigent aucune réponse.||Vous avez conservé le passage en renonçant à le confondre avec une maison. Quand la treizième minute approche, votre lampe se lève. La ville ne disparaît plus. Elle sait désormais où laisser ses absents avant de revenir vivre.",[],{ending:'garde',place:'LE QUAI ENTRE LES HEURES'});
-n('fin-frere',6,'Deux billets pour le matin',"La dérivation ne tolère qu’un passager. Vous laissez votre propre montre au mécanisme, puis poussez Milo vers la rame réelle. Yara comprend assez vite pour actionner l’aiguillage une seconde fois. Vous traversez à votre tour, privée d’un souvenir que vous ne saurez jamais nommer.||Au matin, vous êtes deux à la table de la boulangerie. Vous connaissez encore les treize noms, les fauteuils et le prix du passage. Le monde autour de vous en a perdu la trace. Votre frère vous demande si vous reviendrez les chercher.||Vous ne promettez pas une victoire. Vous sortez un carnet, y dessinez la dérivation et commencez par écrire le prénom de Noé. Vous avez choisi de sauver quelqu’un. Il reste à décider ce que vous allez faire de cette chance.",[],{ending:'frere',place:'UNE TABLE PRÈS DE LA FENÊTRE'});
-return{id:'la-treizieme-heure',edition:2,title:'La Treizième Heure',coverTitle:'LA TREIZIÈME|HEURE',subtitle:'Les minutes qu’on retient',genre:'THRILLER · BOUCLES · ENQUÊTE',description:'Une ville disparaît chaque nuit à 00 h 13. Vos découvertes survivent aux retours. Apprenez ses règles et choisissez qui aura droit à demain.',coverAlt:'Inès en manteau ocre sous la pluie d’une ville nocturne au beffroi impossible.',features:['Boucles à mémoire','3 fins','Enquête et Échos'],accent:'#a2d4c3',loop:true,start:'arrivee',chapters:['Les Salines','Ce qui survit','Le tunnel absent','L’autre Inès','Les treize fauteuils','La dernière minute'],intro:'Vous incarnez Inès Marceau, 32 ans, technicienne du son. Une montre et un rendez-vous avec votre frère vous ramènent dans une ville qui a oublié comment finir ses soirées.',rules:'Le temps est une réserve de décisions, sans chronomètre réel. Chaque choix annonce son coût. À zéro temps ou calme, la boucle recommence ; vos découvertes et vos fins restent dans le carnet. Ces connaissances ouvrent des raccourcis et donnent 1 Écho par tranche de 3 découvertes au prochain retour. Les liens et les réserves de la soirée repartent à leur valeur initiale.',difficulty:['22 temps, 14 calme. Apprendre une boucle reste utile, même après un échec.','19 temps, 11 calme. Les détours demandent davantage de préparation.'],stats:{temps:{label:'Temps',start:22,hard:19,max:24,vital:true,failure:'00 h 13 arrive avant votre décision. La ville recommence ; les découvertes demeurent.'},calme:{label:'Calme',start:14,hard:11,max:16,vital:true,failure:'Les reflets couvrent vos souvenirs. Vous vous réveillez au terminus, avec votre carnet intérieur.'},lien:{label:'Liens',start:0,hard:0,max:12},echo:{label:'Échos',start:0,hard:0,max:6}},clues:{decalage:{title:'Le décalage',text:'La montre recule à sa treizième seconde ; le beffroi ne suit plus le temps réel.'},tram:{title:'La rame absente',text:'Le registre connaît à l’avance les voyageurs qui ne rentreront pas.'},sirene:{title:'Le bruit du répondeur',text:'La sirène de maintenance indique quel circuit écouter au beffroi.'},noe:{title:'Le badge de Noé',text:'Le garçon attend depuis l’accident d’une ligne fermée depuis six ans.'},ancrage:{title:'Ce qui survit',text:'Les objets reviennent à leur place. Ce que vous avez compris résiste au retour.'},chambre:{title:'Le plan de la chambre',text:'Treize fauteuils et un pendule occupent la chambre basse.'},milo:{title:'La demande de Milo',text:'Votre frère a demandé une soirée supplémentaire pour revoir votre mère.'},seul:{title:'L’échec solitaire',text:'Ramener quelqu’un sans reconnaître les autres ferme le passage derrière eux.'},cycle:{title:'Les treize battements',text:'Une porte s’ouvre entre deux rames ; connaître le rythme épargne un détour.'},derivation:{title:'La dérivation',text:'L’aiguillage peut ramener une personne sans délier les treize fauteuils.'},noms:{title:'Les treize noms',text:'Nommer les absents hors du mécanisme est une première forme de sortie.'},prix:{title:'Les lendemains empruntés',text:'Le mécanisme utilise l’avenir de personnes qui n’osent plus le désirer.'},ombre:{title:'L’autre Inès',text:'Une tentative précédente de sauvetage a créé un reflet qui garde vos erreurs.'},signal:{title:'La quatrième note',text:'Trois notes ouvrent le passage. La suivante fait venir les reflets.'},ensemble:{title:'Une place pour demain',text:'Un lien réel permet de quitter un souvenir sans tomber dans le vide.'},sortie:{title:'La procédure de sortie',text:'Il faut reconnaître les absents, délier les fauteuils et maintenir des liens vivants.'},gardien:{title:'La loi du gardien',text:'Un gardien peut conserver le passage, s’il renonce à y retenir les vivants.'}},cast:[{name:'Inès Marceau',role:'Votre personnage',text:'Technicienne du son, attentive aux décalages que les autres n’entendent pas.'},{name:'Milo',role:'Le frère attendu',text:'Il a demandé une soirée de plus. Il ne sait plus comment la terminer.'},{name:'Yara',role:'La contrôleuse',text:'Elle refuse de signer pour les voyageurs qui ne rentrent pas.'},{name:'Jeanne Sorel',role:'L’horlogère',text:'Elle a construit un hommage qui a appris à retenir les gens.'},{name:'Noé',role:'Le garçon au parapluie',text:'Il attend une mère dont la ville a cessé de prononcer le nom.'},{name:'Lise',role:'La veilleuse des noms',text:'Elle vieillit pour que les absents restent reconnaissables.'}],endings:{ville:'Les lendemains rendus',garde:'La gardienne du passage',frere:'Deux billets pour le matin'},nodes:N};
+(function(root,S){if(typeof module==='object'&&module.exports)module.exports=S;else(root.DestinyBooks=root.DestinyBooks||[]).push(S);})(typeof globalThis!=='undefined'?globalThis:this,{
+  "id": "la-treizieme-heure",
+  "edition": 2,
+  "title": "La Treizième Heure",
+  "coverTitle": "LA TREIZIÈME|HEURE",
+  "subtitle": "Retrouver Milo",
+  "genre": "THRILLER · BOUCLES · ENQUÊTE",
+  "description": "Vous êtes Inès. Votre frère Milo a disparu près du beffroi. Dans cette ville, la même soirée recommence chaque nuit à 00 h 13. Retrouvez-le et découvrez comment sortir de cette boucle.",
+  "coverAlt": "Inès en manteau ocre sous la pluie d’une ville nocturne au beffroi impossible.",
+  "features": [
+    "6 chapitres",
+    "3 fins",
+    "Objectif toujours visible"
+  ],
+  "accent": "#a2d4c3",
+  "loop": true,
+  "start": "arrivee",
+  "chapters": [
+    "Chercher Milo",
+    "Comprendre la boucle",
+    "Traverser le tunnel",
+    "Entrer dans le beffroi",
+    "Retrouver votre frère",
+    "Arrêter la soirée"
+  ],
+  "intro": "Vous êtes Inès. Votre frère Milo a disparu près du beffroi. Dans cette ville, la même soirée recommence chaque nuit à 00 h 13. Retrouvez-le et découvrez comment sortir de cette boucle.",
+  "rules": "Le Temps diminue seulement quand un choix en dépense : vous pouvez lire aussi longtemps que vous voulez. Gardez le Temps et le Calme au-dessus de zéro. La Confiance représente l’aide de vos proches. Les Charges magiques permettent certains raccourcis. En cas d’échec, la soirée recommence, mais vos indices restent connus. Tous les trois indices, vous gagnez une charge au prochain retour.",
+  "difficulty": [
+    "Normal : 22 Temps et 14 Calme. Recommandé pour découvrir l’histoire.",
+    "Difficile : 19 Temps et 11 Calme. Vous aurez moins de marge pour les détours."
+  ],
+  "stats": {
+    "temps": {
+      "label": "Temps",
+      "start": 22,
+      "hard": 19,
+      "max": 24,
+      "vital": true,
+      "failure": "00 h 13 arrive avant votre décision. La ville recommence ; les découvertes demeurent."
+    },
+    "calme": {
+      "label": "Calme",
+      "start": 14,
+      "hard": 11,
+      "max": 16,
+      "vital": true,
+      "failure": "Les reflets couvrent vos souvenirs. Vous vous réveillez au terminus, avec votre carnet intérieur."
+    },
+    "lien": {
+      "label": "Confiance",
+      "start": 0,
+      "hard": 0,
+      "max": 12
+    },
+    "echo": {
+      "label": "Charges magiques",
+      "start": 0,
+      "hard": 0,
+      "max": 6
+    }
+  },
+  "clues": {
+    "decalage": {
+      "title": "Le décalage",
+      "text": "La montre recule à sa treizième seconde ; le beffroi ne suit plus le temps réel."
+    },
+    "tram": {
+      "title": "La rame absente",
+      "text": "Le registre connaît à l’avance les voyageurs qui ne rentreront pas."
+    },
+    "sirene": {
+      "title": "Le bruit du répondeur",
+      "text": "La sirène de maintenance indique quel circuit écouter au beffroi."
+    },
+    "noe": {
+      "title": "Le badge de Noé",
+      "text": "Le garçon attend depuis l’accident d’une ligne fermée depuis six ans."
+    },
+    "ancrage": {
+      "title": "Ce qui survit",
+      "text": "Les objets reviennent à leur place. Ce que vous avez compris résiste au retour."
+    },
+    "chambre": {
+      "title": "Le plan de la chambre",
+      "text": "Treize fauteuils et un pendule occupent la chambre basse."
+    },
+    "milo": {
+      "title": "La demande de Milo",
+      "text": "Votre frère a demandé une soirée supplémentaire pour revoir votre mère."
+    },
+    "seul": {
+      "title": "L’échec solitaire",
+      "text": "Ramener quelqu’un sans reconnaître les autres ferme le passage derrière eux."
+    },
+    "cycle": {
+      "title": "Les treize battements",
+      "text": "Une porte s’ouvre entre deux rames ; connaître le rythme épargne un détour."
+    },
+    "derivation": {
+      "title": "La dérivation",
+      "text": "L’aiguillage peut ramener une personne sans délier les treize fauteuils."
+    },
+    "noms": {
+      "title": "Les treize noms",
+      "text": "Nommer les absents hors du mécanisme est une première forme de sortie."
+    },
+    "prix": {
+      "title": "Le danger de la machine",
+      "text": "La machine retient des vivants dans leurs souvenirs. Elle remplace aussi peu à peu les rues réelles de la ville."
+    },
+    "ombre": {
+      "title": "L’autre Inès",
+      "text": "Une tentative précédente de sauvetage a créé un reflet qui garde vos erreurs."
+    },
+    "signal": {
+      "title": "La quatrième note",
+      "text": "Trois notes ouvrent le passage. La suivante fait venir les reflets."
+    },
+    "ensemble": {
+      "title": "L’aide de vos proches",
+      "text": "La confiance de vos alliés vous aide à ramener les prisonniers dans le monde réel."
+    },
+    "sortie": {
+      "title": "La procédure pour arrêter la boucle",
+      "text": "Vous avez appris à libérer les personnes retenues dans les treize fauteuils. Cette procédure est nécessaire pour sauver toute la ville."
+    },
+    "gardien": {
+      "title": "La loi du gardien",
+      "text": "Un gardien peut conserver le passage, s’il renonce à y retenir les vivants."
+    }
+  },
+  "cast": [
+    {
+      "name": "Inès Marceau",
+      "role": "Votre personnage",
+      "text": "Vous cherchez votre frère Milo dans une ville où la même soirée recommence."
+    },
+    {
+      "name": "Milo",
+      "role": "Le frère attendu",
+      "text": "Votre petit frère. Il est entré dans la machine pour revoir votre mère morte et ne sait plus en sortir."
+    },
+    {
+      "name": "Yara",
+      "role": "La contrôleuse",
+      "text": "La contrôleuse du tram. Elle peut devenir votre alliée dans l’enquête."
+    },
+    {
+      "name": "Jeanne Sorel",
+      "role": "L’horlogère",
+      "text": "L’horlogère. Elle connaît la machine qui provoque les boucles temporelles."
+    },
+    {
+      "name": "Noé",
+      "role": "Le garçon au parapluie",
+      "text": "Un enfant prisonnier de la boucle, qui attend sa mère morte dans l’accident."
+    },
+    {
+      "name": "Lise",
+      "role": "La veilleuse des noms",
+      "text": "La gardienne des archives. Elle conserve les noms des victimes de l’accident."
+    }
+  ],
+  "endings": {
+    "ville": "Toute la ville est libre",
+    "garde": "Vous restez gardienne",
+    "frere": "Milo sort avec vous"
+  },
+  "nodes": {
+    "arrivee": {
+      "id": "arrivee",
+      "chapter": 1,
+      "title": "Votre frère a disparu",
+      "text": [
+        "Vous êtes Inès. Vous arrivez en tram pour retrouver Milo, votre petit frère. Il devait vous attendre sous la grande horloge du beffroi, mais il n’est pas là.",
+        "Votre montre recule d’une seconde. Quelque chose dérègle le temps dans cette ville. Vous pouvez examiner le quai ou appeler Milo."
+      ],
+      "choices": [
+        {
+          "id": "quai",
+          "label": "Examiner les signes étranges sur le quai",
+          "next": "quai",
+          "detail": "Vous dépensez 1 Temps pour trouver un premier indice.",
+          "effects": {
+            "temps": -1
+          },
+          "learn": [
+            "decalage"
+          ]
+        },
+        {
+          "id": "appel",
+          "label": "Appeler votre frère",
+          "next": "appel",
+          "detail": "Vous dépensez 1 Temps pour essayer de joindre Milo.",
+          "effects": {
+            "temps": -1
+          }
+        }
+      ],
+      "place": "TERMINUS DES SALINES",
+      "time": "18 H 30",
+      "goal": "Chercher une première piste sur Milo."
+    },
+    "quai": {
+      "id": "quai",
+      "chapter": 1,
+      "title": "Le registre du tram",
+      "text": [
+        "Yara, la contrôleuse, vous montre un registre étrange. Il annonce déjà les personnes qui disparaîtront cette nuit. Votre nom y figure.",
+        "Elle peut vous aider à chercher Milo. Vous pouvez lui expliquer votre rendez-vous ou simplement copier le numéro du tram suspect."
+      ],
+      "choices": [
+        {
+          "id": "yara",
+          "label": "Demander à Yara de vous accompagner",
+          "next": "place",
+          "detail": "Vous aurez une alliée pour chercher Milo.",
+          "effects": {
+            "temps": -1,
+            "calme": -1,
+            "lien": 1
+          },
+          "flags": [
+            "yara"
+          ],
+          "learn": [
+            "tram"
+          ]
+        },
+        {
+          "id": "copie",
+          "label": "Copier le numéro de la rame et partir",
+          "next": "place",
+          "detail": "Vous économisez vos forces. Le relevé restera votre seule preuve.",
+          "effects": {},
+          "learn": [
+            "tram"
+          ]
+        }
+      ],
+      "place": "LE QUAI NUMÉRO TREIZE",
+      "goal": "Décider si vous faites confiance à Yara."
+    },
+    "appel": {
+      "id": "appel",
+      "chapter": 1,
+      "title": "Milo vous téléphone",
+      "text": [
+        "Milo vous appelle avant que vous ayez composé son numéro. Il vous avertit de ne pas entrer seule dans le beffroi. Puis la ligne coupe.",
+        "On entend une sirène derrière sa voix. Vous pouvez réécouter cet indice ou demander de l’aide à Yara, la contrôleuse."
+      ],
+      "choices": [
+        {
+          "id": "ecouter",
+          "label": "Réécouter jusqu’au bruit de fond",
+          "next": "place",
+          "detail": "Vous identifiez une sirène de maintenance.",
+          "effects": {
+            "calme": -1
+          },
+          "learn": [
+            "sirene"
+          ]
+        },
+        {
+          "id": "chercher",
+          "label": "Demander de l’aide à la contrôleuse",
+          "next": "place",
+          "detail": "Yara accepte de vous accompagner à la place.",
+          "effects": {
+            "temps": -1,
+            "lien": 1
+          },
+          "flags": [
+            "yara"
+          ]
+        }
+      ],
+      "place": "SOUS L’AUVENT",
+      "goal": "Trouver d’où vient son appel."
+    },
+    "place": {
+      "id": "place",
+      "chapter": 1,
+      "title": "Un enfant attend sur la place",
+      "text": [
+        "Sur la place du beffroi, vous rencontrez Noé. Il attend sa mère depuis un accident de tram survenu six ans plus tôt. Il semble pourtant n’avoir pas grandi.",
+        "Il est lui aussi prisonnier du temps. Vous pouvez rester pour écouter son histoire ou photographier son badge et chercher Jeanne, l’horlogère."
+      ],
+      "choices": [
+        {
+          "id": "noe",
+          "label": "Rester avec Noé et noter ses souvenirs",
+          "next": "atelier",
+          "detail": "Le lien humain vous ancre ; cette rencontre coûte du temps.",
+          "effects": {
+            "temps": -2,
+            "lien": 2
+          },
+          "learn": [
+            "noe"
+          ],
+          "flags": [
+            "noe"
+          ]
+        },
+        {
+          "id": "photo",
+          "label": "Photographier son badge et chercher l’horlogère",
+          "next": "atelier",
+          "detail": "Vous conservez une piste, mais laissez l’enfant attendre.",
+          "effects": {
+            "temps": -1,
+            "calme": -1
+          },
+          "learn": [
+            "noe"
+          ]
+        }
+      ],
+      "place": "PLACE DU BEFFROI",
+      "time": "19 H 10",
+      "goal": "Aider Noé ou poursuivre rapidement votre enquête."
+    },
+    "atelier": {
+      "id": "atelier",
+      "chapter": 2,
+      "title": "L’horlogère connaît la boucle",
+      "text": [
+        "Jeanne vous accueille dans son atelier. Elle vous explique la règle : à 00 h 13, la soirée recommence et les objets reviennent à leur place.",
+        "En revanche, vous gardez ce que vous avez appris. Une tentative ratée peut donc vous aider la fois suivante. Vous pouvez étudier ce phénomène ou vous reposer avec elle."
+      ],
+      "choices": [
+        {
+          "id": "mecanisme",
+          "label": "Étudier les règles de la boucle",
+          "next": "dossier",
+          "detail": "Vous garderez cet indice même après un retour.",
+          "effects": {
+            "temps": -1
+          },
+          "learn": [
+            "ancrage"
+          ]
+        },
+        {
+          "id": "repos",
+          "label": "Accepter un thé et raconter votre frère",
+          "next": "dossier",
+          "detail": "Jeanne vous aide à retrouver votre calme.",
+          "effects": {
+            "temps": -1,
+            "calme": 3,
+            "lien": 1
+          },
+          "flags": [
+            "jeanne"
+          ]
+        }
+      ],
+      "checkpoint": true,
+      "place": "ATELIER SOREL",
+      "goal": "Comprendre ce qui reste après un retour."
+    },
+    "dossier": {
+      "id": "dossier",
+      "chapter": 2,
+      "title": "L’origine du piège",
+      "text": [
+        "Jeanne vous raconte l’accident : treize personnes sont mortes dans un tunnel de tram, dont votre mère et celle de Noé.",
+        "Une machine construite pour leurs familles permettait de revivre une soirée avec elles. Elle a fini par retenir les vivants. Vous pouvez chercher son plan ou le dossier de Milo."
+      ],
+      "choices": [
+        {
+          "id": "plan",
+          "label": "Lire le plan du sous-sol",
+          "next": "tunnel",
+          "detail": "Vous apprenez où se trouve la machine.",
+          "effects": {
+            "temps": -1
+          },
+          "learn": [
+            "chambre"
+          ]
+        },
+        {
+          "id": "milo",
+          "label": "Rechercher le nom de Milo dans les dossiers",
+          "next": "enregistrement",
+          "detail": "Votre frère a déjà pénétré dans le mécanisme.",
+          "effects": {
+            "temps": -1,
+            "calme": -1
+          },
+          "learn": [
+            "milo"
+          ]
+        }
+      ],
+      "place": "LES DOSSIERS SOUS L’ÉTABLI",
+      "goal": "Trouver comment entrer sous le beffroi."
+    },
+    "enregistrement": {
+      "id": "enregistrement",
+      "chapter": 2,
+      "title": "Pourquoi Milo est entré",
+      "text": [
+        "Sur une cassette, Milo explique qu’il est entré dans la machine pour revoir votre mère. Il y est resté prisonnier.",
+        "Vous comprenez que vous avez déjà vécu cette recherche plusieurs fois. Votre impression de longues années venait des soirées répétées. Jeanne reste près de vous pendant que vous écoutez."
+      ],
+      "choices": [
+        {
+          "id": "verite",
+          "label": "Écouter toute la cassette",
+          "next": "tunnel",
+          "detail": "Vous comprenez ce qui est arrivé à Milo, mais perdez du calme.",
+          "effects": {
+            "calme": -2
+          },
+          "learn": [
+            "milo",
+            "seul"
+          ]
+        },
+        {
+          "id": "couper",
+          "label": "Éteindre avant la fin et demander de l’aide",
+          "next": "tunnel",
+          "detail": "Vous préservez votre calme et refusez de rester seule.",
+          "effects": {
+            "lien": 1
+          },
+          "flags": [
+            "jeanne"
+          ]
+        }
+      ],
+      "place": "LE MAGNÉTOPHONE",
+      "goal": "Écouter la vérité ou demander du soutien."
+    },
+    "tunnel": {
+      "id": "tunnel",
+      "chapter": 3,
+      "title": "Entre deux trams",
+      "text": [
+        "Vous atteignez le tunnel menant au beffroi. Deux trams fantômes le traversent régulièrement. Une porte s’ouvre brièvement entre leurs passages.",
+        "Observer leur rythme coûte du temps mais vous apprend un passage sûr. Courir est plus rapide et vous fera perdre beaucoup de calme."
+      ],
+      "choices": [
+        {
+          "id": "cycle",
+          "label": "Compter les battements et laisser passer deux trains",
+          "next": "aiguillage",
+          "detail": "Prudent, mais lent.",
+          "effects": {
+            "temps": -2
+          },
+          "learn": [
+            "cycle"
+          ]
+        },
+        {
+          "id": "souvenir",
+          "label": "Passer au battement déjà mémorisé",
+          "next": "aiguillage",
+          "detail": "Votre savoir économise du temps.",
+          "effects": {},
+          "requires": {
+            "known": [
+              "cycle"
+            ]
+          }
+        },
+        {
+          "id": "course",
+          "label": "Courir entre les reflets",
+          "next": "aiguillage",
+          "detail": "Rapide ; vous vous épuisez à traverser une rame fantôme.",
+          "effects": {
+            "calme": -4
+          }
+        }
+      ],
+      "checkpoint": true,
+      "place": "TUNNEL DES SALINES",
+      "time": "21 H 04",
+      "goal": "Atteindre la porte de maintenance."
+    },
+    "aiguillage": {
+      "id": "aiguillage",
+      "chapter": 3,
+      "title": "Noé dans le tram fantôme",
+      "text": [
+        "Vous voyez Noé dans un tram fantôme. Une poignée rouge permet de ramener un passager vers le quai réel.",
+        "Vous pouvez l’utiliser pour l’aider maintenant. Vous pouvez aussi noter son fonctionnement pour la suite : ce passage pourrait servir à sortir Milo."
+      ],
+      "choices": [
+        {
+          "id": "ramener",
+          "label": "Ramener Noé sur le quai réel",
+          "next": "refuge",
+          "detail": "Vous donnez du temps à quelqu’un qui en manque.",
+          "effects": {
+            "temps": -2,
+            "lien": 2
+          },
+          "flags": [
+            "noeSauve"
+          ],
+          "learn": [
+            "derivation"
+          ]
+        },
+        {
+          "id": "regle",
+          "label": "Mémoriser la dérivation pour la suite",
+          "next": "refuge",
+          "detail": "Vous conservez le trajet et votre avance.",
+          "effects": {
+            "calme": -1
+          },
+          "learn": [
+            "derivation"
+          ]
+        }
+      ],
+      "place": "LE POSTE D’AIGUILLAGE",
+      "goal": "Le ramener ou mémoriser une route de sortie."
+    },
+    "refuge": {
+      "id": "refuge",
+      "chapter": 3,
+      "title": "Un moment avec Yara",
+      "text": [
+        "Dans la cafétéria du dépôt, Yara a gardé une tasse pour chaque collègue disparu. Elle vous aide dans votre recherche.",
+        "Un repas vous rendra du calme et renforcera votre lien avec elle. Emporter le registre vous permettra plutôt de connaître les noms des victimes."
+      ],
+      "choices": [
+        {
+          "id": "repas",
+          "label": "Partager un repas avant l’ascension",
+          "next": "archive",
+          "detail": "Un vrai repos et un lien plus solide.",
+          "effects": {
+            "temps": -1,
+            "calme": 4,
+            "lien": 1
+          },
+          "flags": [
+            "repas"
+          ]
+        },
+        {
+          "id": "partir",
+          "label": "Emporter le registre des disparus",
+          "next": "archive",
+          "detail": "Les treize noms deviennent des indices.",
+          "effects": {},
+          "learn": [
+            "noms"
+          ]
+        }
+      ],
+      "place": "CAFÉTÉRIA DU DÉPÔT",
+      "goal": "Vous reposer ou emporter les noms des victimes."
+    },
+    "archive": {
+      "id": "archive",
+      "chapter": 4,
+      "title": "Les treize victimes",
+      "text": [
+        "Lise garde les archives municipales. Elle conserve les noms des treize victimes de l’accident.",
+        "Elle vous montre une carte : les lieux réels disparaissent peu à peu, remplacés par les souvenirs des prisonniers. Il faut arrêter la machine avant que toute la ville soit piégée."
+      ],
+      "choices": [
+        {
+          "id": "noms",
+          "label": "Lire les treize noms à voix haute",
+          "next": "ombre",
+          "detail": "Vous faites exister les absents hors du mécanisme.",
+          "effects": {
+            "temps": -1,
+            "calme": -1
+          },
+          "learn": [
+            "noms",
+            "prix"
+          ]
+        },
+        {
+          "id": "lise",
+          "label": "Prendre le relais de Lise quelques instants",
+          "next": "ombre",
+          "detail": "Elle vous confie une clé ; porter ces noms coûte du calme.",
+          "effects": {
+            "calme": -2,
+            "lien": 1
+          },
+          "flags": [
+            "cle"
+          ],
+          "learn": [
+            "prix"
+          ]
+        }
+      ],
+      "checkpoint": true,
+      "place": "ARCHIVES MUNICIPALES",
+      "goal": "Comprendre ce que la machine fait à la ville."
+    },
+    "ombre": {
+      "id": "ombre",
+      "chapter": 4,
+      "title": "Une ancienne version de vous",
+      "text": [
+        "Votre reflet sort d’un miroir. C’est une trace d’une de vos anciennes tentatives. Elle explique avoir essayé de sauver Milo seule.",
+        "Elle a réussi à ouvrir une sortie pour lui, mais a laissé les autres prisonniers. Vous pouvez écouter la suite, utiliser un Écho pour arrêter le reflet ou quitter la galerie."
+      ],
+      "choices": [
+        {
+          "id": "ecouter",
+          "label": "Écouter l’autre Inès jusqu’au bout",
+          "next": "sirene",
+          "detail": "Une révélation difficile ouvre une issue différente.",
+          "effects": {
+            "calme": -2
+          },
+          "learn": [
+            "seul",
+            "ombre"
+          ]
+        },
+        {
+          "id": "arreter",
+          "label": "Arrêter le reflet avec une charge magique",
+          "next": "sirene",
+          "detail": "Vous dépensez une charge et gardez son avertissement.",
+          "effects": {
+            "echo": -1
+          },
+          "requires": {
+            "min": {
+              "echo": 1
+            }
+          },
+          "learn": [
+            "ombre"
+          ]
+        },
+        {
+          "id": "fuir",
+          "label": "Fermer la galerie et poursuivre",
+          "next": "sirene",
+          "detail": "Vous gardez vos forces, sans entendre la fin de son avertissement.",
+          "effects": {
+            "temps": -1
+          }
+        }
+      ],
+      "place": "GALERIE DES REFLETS",
+      "goal": "Écouter son avertissement ou continuer."
+    },
+    "sirene": {
+      "id": "sirene",
+      "chapter": 4,
+      "title": "La porte du sous-sol",
+      "text": [
+        "La sirène ouvre un passage sous le beffroi. Trois notes suffisent ; une quatrième attire les reflets dangereux.",
+        "Il faut trouver le bon circuit. L’enregistrement de l’appel peut vous guider. Sinon, vous pouvez tester les câbles ou dépenser un Écho, une charge magique gagnée entre les boucles."
+      ],
+      "choices": [
+        {
+          "id": "indice",
+          "label": "Suivre le circuit du signal enregistré",
+          "next": "seuil",
+          "detail": "L’indice évite une erreur de branchement.",
+          "effects": {
+            "temps": -1
+          },
+          "requires": {
+            "known": [
+              "sirene"
+            ]
+          },
+          "learn": [
+            "signal"
+          ]
+        },
+        {
+          "id": "tester",
+          "label": "Tester chaque circuit avec la lampe",
+          "next": "seuil",
+          "detail": "Méthode fiable mais coûteuse en temps.",
+          "effects": {
+            "temps": -2
+          },
+          "learn": [
+            "signal"
+          ]
+        },
+        {
+          "id": "echo",
+          "label": "Ouvrir le passage avec une charge magique",
+          "next": "seuil",
+          "detail": "Vous évitez les circuits en dépensant une charge.",
+          "effects": {
+            "echo": -1
+          },
+          "requires": {
+            "min": {
+              "echo": 1
+            }
+          },
+          "learn": [
+            "signal"
+          ]
+        }
+      ],
+      "place": "LE SOUS-SOL DU BEFFROI",
+      "time": "23 H 02",
+      "goal": "Ouvrir le passage sans attirer les reflets."
+    },
+    "seuil": {
+      "id": "seuil",
+      "chapter": 5,
+      "title": "Vous retrouvez Milo",
+      "text": [
+        "Milo vous attend au pied d’un escalier. Il vous raconte avoir demandé une soirée de plus avec votre mère, puis encore une autre. Il n’a plus réussi à sortir.",
+        "Il vous a appelée pour l’aider à arrêter. Vous pouvez d’abord le convaincre de revenir, ou examiner la machine pour savoir comment libérer ses prisonniers."
+      ],
+      "choices": [
+        {
+          "id": "milo",
+          "label": "Lui demander de revenir avec vous",
+          "next": "accord",
+          "detail": "Vous choisissez une conversation réelle, sans promettre l’impossible.",
+          "effects": {
+            "temps": -1,
+            "lien": 1
+          },
+          "learn": [
+            "milo"
+          ],
+          "flags": [
+            "parole"
+          ]
+        },
+        {
+          "id": "chambre",
+          "label": "Examiner la chambre avant de lui répondre",
+          "next": "chambre",
+          "detail": "Les mécanismes peuvent vous apprendre ce qu’il tait.",
+          "effects": {
+            "temps": -1
+          },
+          "learn": [
+            "chambre"
+          ]
+        }
+      ],
+      "checkpoint": true,
+      "place": "ESCALIER DES CLOCHES",
+      "goal": "Lui parler ou examiner la machine."
+    },
+    "accord": {
+      "id": "accord",
+      "chapter": 5,
+      "title": "Une vie après la boucle",
+      "text": [
+        "Milo sait que votre mère est morte. Il a peur de quitter ses souvenirs et de ne plus trouver sa place dehors.",
+        "Vous lui proposez une chambre chez vous. Vous pouvez renforcer votre lien avec lui ou prendre une part de ses souvenirs pour obtenir des Échos."
+      ],
+      "choices": [
+        {
+          "id": "demain",
+          "label": "Lui réserver une place dans votre vie réelle",
+          "next": "chambre",
+          "detail": "Votre lien devient un point d’volonté.",
+          "effects": {
+            "lien": 2,
+            "calme": 1
+          },
+          "flags": [
+            "promesse"
+          ],
+          "learn": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "porter",
+          "label": "Prendre ses souvenirs pour gagner des charges",
+          "next": "chambre",
+          "detail": "Vous obtenez de la magie, mais perdez du calme.",
+          "effects": {
+            "calme": -2,
+            "echo": 2
+          },
+          "learn": [
+            "ensemble"
+          ]
+        }
+      ],
+      "place": "LA MARCHE ENTRE DEUX SOIRS",
+      "goal": "Donner à Milo une raison de sortir."
+    },
+    "chambre": {
+      "id": "chambre",
+      "chapter": 5,
+      "title": "La machine à souvenirs",
+      "text": [
+        "Treize fauteuils entourent un pendule. La machine y retient les vivants dans leurs souvenirs au lieu de les laisser rentrer.",
+        "La notice explique comment les libérer. Une autre solution consiste à devenir la gardienne de la machine. Vous pouvez étudier l’une de ces deux méthodes."
+      ],
+      "choices": [
+        {
+          "id": "notice",
+          "label": "Apprendre à libérer les prisonniers",
+          "next": "veille",
+          "detail": "Vous obtenez la procédure nécessaire pour arrêter la boucle.",
+          "effects": {
+            "temps": -1
+          },
+          "learn": [
+            "sortie",
+            "prix"
+          ]
+        },
+        {
+          "id": "gardien",
+          "label": "Apprendre à devenir gardienne",
+          "next": "veille",
+          "detail": "Vous préparez une fin où vous resterez pour surveiller le passage.",
+          "effects": {
+            "calme": -1,
+            "echo": 1
+          },
+          "learn": [
+            "gardien",
+            "sortie"
+          ]
+        }
+      ],
+      "place": "LA CHAMBRE DES TREIZE",
+      "goal": "Préparer une façon de sortir."
+    },
+    "veille": {
+      "id": "veille",
+      "chapter": 6,
+      "title": "Une minute avant le retour",
+      "text": [
+        "Il est 00 h 12. À 00 h 13, toute la soirée recommencera si vous ne faites rien. Le jeu ne vous impose aucun chronomètre réel.",
+        "Vous pouvez demander à vos alliés de vérifier la procédure, créer un dernier Écho en dépensant du calme ou relire seule la notice."
+      ],
+      "choices": [
+        {
+          "id": "ensemble",
+          "label": "Faire relire la procédure à vos alliés",
+          "next": "choix",
+          "detail": "Leur présence maintient le passage ouvert.",
+          "effects": {
+            "lien": 1
+          },
+          "requires": {
+            "min": {
+              "lien": 2
+            }
+          },
+          "learn": [
+            "ensemble"
+          ]
+        },
+        {
+          "id": "stabiliser",
+          "label": "Créer une dernière charge magique",
+          "next": "choix",
+          "detail": "Vous dépensez du calme pour obtenir une charge.",
+          "effects": {
+            "calme": -2,
+            "echo": 1
+          },
+          "requires": {
+            "min": {
+              "calme": 3
+            }
+          }
+        },
+        {
+          "id": "verifier",
+          "label": "Vérifier seule le texte de la procédure",
+          "next": "choix",
+          "detail": "Vous conservez ce que vous possédez.",
+          "effects": {},
+          "learn": [
+            "sortie"
+          ]
+        }
+      ],
+      "checkpoint": true,
+      "place": "LE DERNIER BATTEMENT",
+      "time": "00 H 12",
+      "goal": "Préparer votre dernière décision."
+    },
+    "choix": {
+      "id": "choix",
+      "chapter": 6,
+      "title": "Qui allez-vous sauver ?",
+      "text": [
+        "Vous avez trois possibilités : arrêter la boucle pour toute la ville, rester comme gardienne pour maintenir un passage, ou ramener seulement Milo par l’aiguillage.",
+        "Les conditions sont indiquées sous les choix. Si vous manquez de préparation, vous pouvez recommencer la soirée en gardant vos découvertes."
+      ],
+      "choices": [
+        {
+          "id": "liberer",
+          "label": "Arrêter la boucle et libérer toute la ville",
+          "next": "fin-ville",
+          "detail": "Il faut 7 indices, 3 points de confiance et la procédure de sortie.",
+          "effects": {},
+          "requires": {
+            "knowledge": 7,
+            "min": {
+              "lien": 3
+            },
+            "known": [
+              "sortie"
+            ]
+          }
+        },
+        {
+          "id": "garder",
+          "label": "Rester pour surveiller la machine",
+          "next": "fin-garde",
+          "detail": "Il faut 6 indices, 1 charge magique et la règle du gardien.",
+          "effects": {
+            "echo": -1
+          },
+          "requires": {
+            "knowledge": 6,
+            "min": {
+              "echo": 1
+            },
+            "known": [
+              "gardien"
+            ]
+          }
+        },
+        {
+          "id": "frere",
+          "label": "Faire sortir Milo sans arrêter la boucle",
+          "next": "fin-frere",
+          "detail": "Il faut 2 points de confiance et les indices sur Milo et l’aiguillage.",
+          "effects": {},
+          "requires": {
+            "min": {
+              "lien": 2
+            },
+            "known": [
+              "derivation",
+              "milo"
+            ]
+          }
+        },
+        {
+          "id": "retour",
+          "label": "Recommencer avec ce que vous savez",
+          "next": "choix",
+          "detail": "Votre carnet de découvertes survit. Le reste de la soirée recommence.",
+          "effects": {},
+          "fail": "00 h 13. Vous avez choisi d’apprendre encore. La ville s’efface, mais vos découvertes restent."
+        }
+      ],
+      "place": "LE PENDULE",
+      "goal": "Choisir une sortie avec ce que vous avez préparé."
+    },
+    "fin-ville": {
+      "id": "fin-ville",
+      "chapter": 6,
+      "title": "La boucle s’arrête",
+      "text": [
+        "Vous arrêtez la machine et libérez les personnes qu’elle retenait. À 00 h 14, la ville continue enfin de vivre au lieu de recommencer.",
+        "Milo rentre avec vous. Votre mère ne revient pas à la vie, mais vous pouvez maintenant avancer ensemble. Noé quitte lui aussi le piège."
+      ],
+      "choices": [],
+      "ending": "ville",
+      "place": "00 H 14 · LA PLACE RÉELLE",
+      "goal": "Votre aventure est terminée."
+    },
+    "fin-garde": {
+      "id": "fin-garde",
+      "chapter": 6,
+      "title": "Vous restez gardienne",
+      "text": [
+        "Vous prenez le contrôle du pendule. La ville sort de la boucle, mais vous restez pour surveiller le passage entre les souvenirs et le monde réel.",
+        "Milo peut rentrer. Vous ne pouvez pas vivre avec lui pour le moment, mais Jeanne vous apporte de ses nouvelles. Plus personne ne sera retenu sans connaître la sortie."
+      ],
+      "choices": [],
+      "ending": "garde",
+      "place": "LE QUAI ENTRE LES HEURES",
+      "goal": "Votre aventure est terminée."
+    },
+    "fin-frere": {
+      "id": "fin-frere",
+      "chapter": 6,
+      "title": "Milo sort avec vous",
+      "text": [
+        "Vous utilisez l’aiguillage pour faire sortir Milo, puis Yara vous aide à le rejoindre. Vous êtes tous les deux libres.",
+        "Les autres prisonniers restent dans la machine. Vous notez leurs noms pour revenir les aider. Vous avez sauvé votre frère, mais la boucle n’est pas encore arrêtée pour tout le monde."
+      ],
+      "choices": [],
+      "ending": "frere",
+      "place": "UNE TABLE PRÈS DE LA FENÊTRE",
+      "goal": "Votre aventure est terminée."
+    }
+  },
+  "guide": {
+    "hero": "Inès, la sœur de Milo",
+    "mission": "Retrouver votre frère et sortir d’une soirée qui recommence."
+  }
 });

@@ -1,26 +1,30 @@
+# Mille Destins 0.3.0
+
+Cette version rend les quatre histoires plus faciles à comprendre : 98 passages réécrits, phrases courtes, objectifs concrets, repères visibles et choix expliqués. La difficulté des épreuves et les branches restent identiques. Les sauvegardes 0.1.0 et 0.2.0 restent compatibles : aucun identifiant ni format de carnet ne change.
+
 # Mille Destins
 
-Une bibliothèque d’histoires illustrées dont vous êtes le héros. **Quatre histoires complètes sont disponibles dans l’édition 0.2.0**, chacune avec trois fins et son carnet indépendant. **Le Rang Zéro — Les noms engloutis** est le premier récit de la collection. Le lecteur incarne Ari Veyr, un coursier dont l’aptitude apprend les lois des monstres. Sa puissance grandit, ses décisions laissent des liens et des dettes.
+Une bibliothèque d’histoires illustrées dont vous êtes le héros. **Quatre histoires complètes sont disponibles dans l’édition 0.3.0**, chacune avec trois fins et son carnet indépendant. **Le Rang Zéro — Les noms engloutis** est le premier récit de la collection. Le lecteur incarne Ari Veyr, un coursier dont l’aptitude apprend les lois des monstres. Sa puissance grandit, ses décisions laissent des liens et des dettes.
 
-[Jouer dans le navigateur](https://zachiran42.github.io/mille-destins/) · [APK Android](https://github.com/Zachiran42/mille-destins/releases/latest/download/mille-destins-0.2.0.apk) · [Cercle Store](https://zachiran42.github.io/cercle-store/)
+[Jouer dans le navigateur](https://zachiran42.github.io/mille-destins/) · [APK Android](https://github.com/Zachiran42/mille-destins/releases/latest/download/mille-destins-0.3.0.apk) · [Cercle Store](https://zachiran42.github.io/cercle-store/)
 
 ![Le Rang Zéro](docs/histoires/le-rang-zero/assets/keyart.png)
 
 ## Les quatre récits
 
 - **Le Rang Zéro** : six chapitres, 37 passages, progression, combats tactiques et trois fins.
-- **La Treizième Heure** : six chapitres, 21 passages et trois fins ; enquête à boucles, découvertes persistantes, liens et Échos.
-- **La Couronne des Dévorés** : six chapitres, 20 passages et trois fins ; pouvoirs empruntés, duels à ouvertures, ancrage et serments.
-- **Éden ne répond plus** : six chapitres, 20 passages et trois fins ; oxygène, énergie, filtres et cohésion de l’équipage.
+- **La Treizième Heure** : six chapitres, 21 passages et trois fins ; enquête à boucles, découvertes persistantes, confiance et charges magiques.
+- **La Couronne des Dévorés** : six chapitres, 20 passages et trois fins ; pouvoirs empruntés, duels à ouvertures, volonté et soutiens.
+- **Éden ne répond plus** : six chapitres, 20 passages et trois fins ; oxygène, énergie, filtres et confiance de l’équipage.
 - Progression de niveaux, six aptitudes, trois reliques, alliances et choix avec conséquences annoncées.
 - Combats au tour par tour : deux actions, une intention ennemie visible, garde, mana, marques, interruptions et boss à phases.
-- Deux difficultés exigeantes : Épreuve et Impitoyable. Aucun chronomètre de lecture. Reprise au début du chapitre et réattribution des aptitudes aux points sûrs.
+- Deux difficultés : Normal et Difficile. Aucun chronomètre de lecture. Reprise au début du chapitre et réattribution des aptitudes aux points sûrs.
 - Illustrations originales, six personnages visuellement distincts, codex, historique des décisions, texte agrandi et ambiance sonore facultative.
 - Bibliothèque commune, carnet et copie de secours séparés pour chaque histoire, export/import d’un récit ou de la bibliothèque entière.
 
 L’APK contient tous les textes, illustrations et sons synthétisés. **Aucun compte, publicité, service distant ou permission Internet.** La page web nécessite une connexion pour charger ses fichiers. Les sauvegardes web et Android sont séparées et se transfèrent par les fichiers JSON exportés.
 
-Les trois nouveaux récits sont des aventures courtes, d’environ 1 900 à 2 050 mots chacune sur l’ensemble de leurs branches. Une traversée en lit une partie ; les boucles et les autres fins invitent à rejouer. Ils utilisent des décisions narratives à ressources plutôt que le combat au tour par tour du Rang Zéro. La suite envisagée est une aventure shōnen originale : voir [ROADMAP.md](ROADMAP.md).
+Les trois nouveaux récits sont des aventures courtes, d’environ 940 à 1 010 mots chacune sur l’ensemble de leurs branches. Une traversée en lit une partie ; les boucles et les autres fins invitent à rejouer. Ils utilisent des décisions narratives à ressources plutôt que le combat au tour par tour du Rang Zéro. La suite envisagée est une aventure shōnen originale : voir [ROADMAP.md](ROADMAP.md).
 
 ## Lancer et vérifier
 
@@ -49,7 +53,7 @@ Android 8+ (API 26), Android System WebView à jour. Pas de dépendance à une a
 ./scripts/build.ps1 -KeyStore C:/cles/application.jks -KeyAlias milledestins
 ```
 
-Les releases utilisent la même signature de développement ; la mise à jour 0.2.0 conserve le nom de paquet et les carnets 0.1.0. Conserver la même clé pour les mises à jour ; les clés et mots de passe ne sont pas distribués dans les sources. Le script vérifie la signature et l’alignement.
+Les releases utilisent la même signature de développement ; la mise à jour 0.3.0 conserve le nom de paquet et les carnets 0.1.0. Conserver la même clé pour les mises à jour ; les clés et mots de passe ne sont pas distribués dans les sources. Le script vérifie la signature et l’alignement.
 
 ## Ajouter une histoire
 

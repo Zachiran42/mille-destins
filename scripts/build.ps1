@@ -36,7 +36,7 @@ foreach ($file in @($java, $javac, $jar, $aapt, $d8, $zipalign, $apksigner, $too
 $KeyStore = Resolve-ProjectPath $KeyStore
 if (-not (Test-Path -LiteralPath $KeyStore -PathType Leaf)) { throw 'La cle de signature fournie est introuvable.' }
 if (-not $env:MINIGAMES_KEYSTORE_PASSWORD) { throw 'Definissez MINIGAMES_KEYSTORE_PASSWORD avant de compiler. Le secret ne doit pas etre dans les sources.' }
-if (-not $OutputFile) { $OutputFile = 'build\mille-destins-0.2.0.apk' }
+if (-not $OutputFile) { $OutputFile = 'build\mille-destins-0.3.0.apk' }
 if (-not $BuildDir) { $BuildDir = 'build' }
 $OutputFile = Resolve-ProjectPath $OutputFile
 $BuildDir = Resolve-ProjectPath $BuildDir
